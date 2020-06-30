@@ -208,6 +208,12 @@ class _Page1State extends State<Page1> {
               )
             ],
           ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/Page2');
+            },
+            child: Text('Page2'),
+          ),
         ],
       ),
     );
