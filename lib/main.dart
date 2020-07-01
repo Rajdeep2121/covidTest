@@ -34,6 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
+              // color: Colors.blue[900],
               color: Colors.grey[850],
             ),
           ),
@@ -45,7 +46,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 child: Container(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
+                      // SizedBox(height: 200),
                       CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 50,
@@ -54,8 +57,17 @@ class _SplashScreenState extends State<SplashScreen> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
                       ),
+                      // SizedBox(height: 100),
                       Text(
-                        'New App',
+                        'COVID-19',
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          fontFamily: 'Lulo',
+                        ),
+                      ),
+                      Text(
+                        'Live Tracker',
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
