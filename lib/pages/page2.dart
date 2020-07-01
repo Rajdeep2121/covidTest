@@ -51,6 +51,54 @@ class _Page2State extends State<Page2> {
         ),
         centerTitle: true,
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'COVID 19 Tracker',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 25,
+                ),
+              ),
+              currentAccountPicture: CircleAvatar(
+                child: Image.asset('assets/circle-cropped.png'),
+              ),
+              accountEmail: Text(''),
+            ),
+            // SizedBox(height: 60),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text(
+                'Home',
+                style: TextStyle(
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/'); //pop it
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text(
+                'States',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Page2');
+              },
+            ),
+          ],
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.all(10),
         child: FutureBuilder(
@@ -68,14 +116,14 @@ class _Page2State extends State<Page2> {
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(40.0),
                     ),
                     // color: Colors.lightBlue[100],
-                    color: Colors.teal[200],
+                    // color: Colors.teal[200],
                     elevation: 10,
                     child: Center(
                       child: Container(
-                        margin: const EdgeInsets.all(10.0),
+                        margin: const EdgeInsets.all(5.0),
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,

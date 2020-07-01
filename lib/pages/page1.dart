@@ -33,11 +33,11 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.amber[100],
+      backgroundColor: Colors.grey[350],
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
-        titleSpacing: 2,
+        // titleSpacing: 2,
         title: Text(
           'CASES IN INDIA',
           style: TextStyle(
@@ -49,6 +49,54 @@ class _Page1State extends State<Page1> {
           ),
         ),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text(
+                'COVID 19 Tracker',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 25,
+                ),
+              ),
+              currentAccountPicture: CircleAvatar(
+                child: Image.asset('assets/circle-cropped.png'),
+              ),
+              accountEmail: Text(''),
+            ),
+            // SizedBox(height: 60),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text(
+                'Home',
+                style: TextStyle(
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/'); //pop it
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text(
+                'States',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Page2');
+              },
+            ),
+          ],
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -211,21 +259,6 @@ class _Page1State extends State<Page1> {
           ),
           Divider(
             color: Colors.grey[500],
-          ),
-          SizedBox(height: 40),
-          RaisedButton(
-            color: Colors.blue,
-            onPressed: () {
-              Navigator.pushNamed(context, '/Page2');
-            },
-            child: Text(
-              'See details of each state...',
-              style: TextStyle(
-                fontFamily: 'ProximaNova',
-                fontSize: 16,
-                color: Colors.white,
-              ),
-            ),
           ),
         ],
       ),

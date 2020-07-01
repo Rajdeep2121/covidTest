@@ -6,10 +6,10 @@ import 'dart:async';
 void main() => runApp(MaterialApp(
       // home: Home(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/SplashScreen',
       routes: {
-        '/': (context) => SplashScreen(),
-        '/Page1': (context) => Page1(),
+        '/SplashScreen': (context) => SplashScreen(),
+        '/': (context) => Page1(),
         '/Page2': (context) => Page2(),
       },
     ));
@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 4), () => Navigator.pushNamed(context, '/Page1'));
+    Timer(Duration(seconds: 2), () => Navigator.pop(context));
   }
 
   @override
@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              color: Colors.redAccent,
+              color: Colors.grey[850],
             ),
           ),
           Column(
@@ -49,11 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 50,
-                        child: Icon(
-                          Icons.account_circle,
-                          color: Colors.black,
-                          size: 50,
-                        ),
+                        child: Image.asset('assets/circle-cropped.png'),
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
