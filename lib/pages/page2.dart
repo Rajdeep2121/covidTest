@@ -12,7 +12,7 @@ class _Page2State extends State<Page2> {
     var response = await get('https://api.covid19india.org/data.json');
     var data = jsonDecode(response.body);
     // print(data['statewise']);
-    print(data['statewise']);
+    // print(data['statewise']);
     List<Data> cases = [];
     for (var u in data['statewise']) {
       // print(u['active']);

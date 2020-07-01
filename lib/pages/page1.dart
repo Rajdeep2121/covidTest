@@ -35,6 +35,7 @@ class _Page1State extends State<Page1> {
     return Scaffold(
       // backgroundColor: Colors.amber[100],
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.black,
         titleSpacing: 2,
         title: Text(
