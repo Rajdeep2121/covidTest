@@ -33,16 +33,16 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[100],
+      // backgroundColor: Colors.amber[100],
       appBar: AppBar(
         backgroundColor: Colors.black,
         titleSpacing: 2,
         title: Text(
           'CASES IN INDIA',
           style: TextStyle(
-            fontFamily: 'ProximaNova',
-            color: Colors.white70,
-            fontSize: 26,
+            fontFamily: 'Lulo',
+            color: Colors.white,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             letterSpacing: 2,
           ),
