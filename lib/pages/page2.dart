@@ -36,25 +36,34 @@ class _Page2State extends State<Page2> {
     return Scaffold(
       // backgroundColor: Colors.grey[800],
       // backgroundColor: Colors.teal[800],
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        titleSpacing: 2,
-        title: Text(
-          'States of India',
-          style: TextStyle(
-            fontFamily: 'Lulo',
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: AppBar(
+          backgroundColor: Colors.black,
+          titleSpacing: 2,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Text(
+              'States of India',
+              style: TextStyle(
+                fontFamily: 'Lulo',
+                color: Colors.white,
+                fontSize: 21,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2,
+              ),
+            ),
           ),
+          centerTitle: true,
         ),
-        centerTitle: true,
       ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
             UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.grey[800],
+              ),
               accountName: Text(
                 'COVID 19 Tracker',
                 style: TextStyle(
