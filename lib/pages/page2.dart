@@ -23,6 +23,9 @@ class _Page2State extends State<Page2> {
           deaths: u['deaths'],
           recovered: u['recovered']);
       cases.add(user);
+      if (u['state'] == 'Total' || u['state'] == 'State Unassigned') {
+        cases.removeLast();
+      }
     }
     // print(cases);
     return cases;
@@ -31,7 +34,8 @@ class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.blue[100],
+      // backgroundColor: Colors.grey[800],
+      // backgroundColor: Colors.teal[800],
       appBar: AppBar(
         backgroundColor: Colors.black,
         titleSpacing: 2,
@@ -48,6 +52,7 @@ class _Page2State extends State<Page2> {
         centerTitle: true,
       ),
       body: Container(
+        padding: EdgeInsets.all(10),
         child: FutureBuilder(
           future: getCases(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -61,23 +66,63 @@ class _Page2State extends State<Page2> {
               return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Center(
-                        child: Text(
-                      snapshot.data[index].state,
-                      style: TextStyle(fontSize: 20, fontFamily: 'ProximaNova'),
-                    )),
-                    subtitle: Center(
-                      child: Text(
-                        'Confirmed: ${snapshot.data[index].confirmed}, Active: ${snapshot.data[index].active}, \nRecovered: ${snapshot.data[index].recovered}, Deaths: ${snapshot.data[index].deaths}',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontWeight: FontWeight.bold,
+                  return Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    // color: Colors.lightBlue[100],
+                    color: Colors.teal[200],
+                    elevation: 10,
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            SizedBox(height: 10),
+                            Text(
+                              "${snapshot.data[index].state}",
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                fontSize: 24,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "Confirmed: ${snapshot.data[index].confirmed}",
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.red,
+                              ),
+                            ),
+                            Text(
+                              "Active: ${snapshot.data[index].active}",
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.lightBlue[900],
+                              ),
+                            ),
+                            Text(
+                              "Recovered: ${snapshot.data[index].recovered}",
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.teal[500],
+                              ),
+                            ),
+                            Text(
+                              "Deaths: ${snapshot.data[index].deaths}",
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.grey[600],
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                          ],
                         ),
                       ),
                     ),
-                    contentPadding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-                    isThreeLine: true,
                   );
                 },
               );
