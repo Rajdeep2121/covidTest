@@ -208,11 +208,23 @@ class _Page1State extends State<Page1> {
               )
             ],
           ),
+          Divider(
+            color: Colors.grey[500],
+          ),
+          SizedBox(height: 40),
           RaisedButton(
+            color: Colors.blue,
             onPressed: () {
               Navigator.pushNamed(context, '/Page2');
             },
-            child: Text('Page2'),
+            child: Text(
+              'See details of each state...',
+              style: TextStyle(
+                fontFamily: 'ProximaNova',
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
           ),
         ],
       ),
