@@ -11,4 +11,5 @@ In the directory run these commands,<br>
 >flutter install<br>
 
 
-Or else you can download the apk file in the "FINAL APK FILE" folder.
+Or else,<br>
+<a href="https://drive.google.com/drive/folders/15IG_GJ7sOA3DTGj94jqhcLvSIRVnqEuu?usp=sharing">Click Here</a> to download the apk.
