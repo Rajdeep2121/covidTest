@@ -7,7 +7,7 @@ import 'dart:async';
 void main() => runApp(MaterialApp(
       // home: Home(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/Page2',
+      initialRoute: '/SplashScreen',
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         '/': (context) => Page1(),

@@ -3,7 +3,7 @@ import '../services/cases.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
 import '../services/scaleroute.dart';
-import 'dart:async';
+// import 'dart:async';
 
 class Page1 extends StatefulWidget {
   @override
