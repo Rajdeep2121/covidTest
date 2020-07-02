@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../services/cases.dart';
+import '../pages/page2.dart';
+import '../pages/page3.dart';
+import '../services/scaleroute.dart';
 
 class Page1 extends StatefulWidget {
   @override
@@ -113,7 +116,8 @@ class _Page1State extends State<Page1> {
                 ),
                 selected: true,
                 onTap: () {
-                  Navigator.pushNamed(context, '/'); //pop it
+                  // Navigator.pushNamed(context, '/');
+                  Navigator.push(context, ScaleRoute(page: Page1()));
                 },
               ),
             ),
@@ -129,7 +133,8 @@ class _Page1State extends State<Page1> {
                 ),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/Page2');
+                // Navigator.pushNamed(context, '/Page2');
+                Navigator.push(context, ScaleRoute(page: Page2()));
               },
             ),
             ListTile(
@@ -144,7 +149,8 @@ class _Page1State extends State<Page1> {
                 ),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/Page3');
+                // Navigator.pushNamed(context, '/Page3');
+                Navigator.push(context, ScaleRoute(page: Page3()));
               },
             ),
           ],

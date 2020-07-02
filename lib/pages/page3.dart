@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
+import '../pages/page1.dart';
+import '../pages/page2.dart';
+import '../services/scaleroute.dart';
 
 class Page3 extends StatefulWidget {
   @override
@@ -114,7 +117,8 @@ class _Page3State extends State<Page3> {
                 ),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/'); //pop it
+                // Navigator.pushNamed(context, '/'); //pop it
+                Navigator.push(context, ScaleRoute(page: Page1()));
               },
             ),
             ListTile(
@@ -129,7 +133,8 @@ class _Page3State extends State<Page3> {
                 ),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/Page2');
+                // Navigator.pushNamed(context, '/Page2');
+                Navigator.push(context, ScaleRoute(page: Page2()));
               },
             ),
             Container(
@@ -149,7 +154,8 @@ class _Page3State extends State<Page3> {
                 ),
                 selected: true,
                 onTap: () {
-                  Navigator.pushNamed(context, '/Page3');
+                  // Navigator.pushNamed(context, '/Page3');
+                  Navigator.push(context, ScaleRoute(page: Page3()));
                 },
               ),
             ),
