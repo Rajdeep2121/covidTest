@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 import '../services/cases.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
 import '../services/scaleroute.dart';
+import '../services/sizeroute.dart';
+import '../main.dart';
 // import 'dart:async';
 
 class Page1 extends StatefulWidget {
@@ -10,12 +13,35 @@ class Page1 extends StatefulWidget {
   _Page1State createState() => _Page1State();
 }
 
-class _Page1State extends State<Page1> {
+class _Page1State extends State<Page1> with WidgetsBindingObserver {
+  AppLifecycleState _notification;
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _notification = state;
+    switch (state) {
+      case AppLifecycleState.resumed:
+        setIndiaCases();
+        print("app in resumed");
+        break;
+      case AppLifecycleState.inactive:
+        // SystemNavigator.pop(); //closes app when user leaves app
+        print("app in inactive");
+        break;
+      case AppLifecycleState.paused:
+        print("app in paused");
+        break;
+      case AppLifecycleState.detached:
+        print("app in detached");
+        break;
+    }
+  }
+
   String total = 'Loading...';
   String active = 'Loading...';
   String death = 'Loading...';
   String recovered = 'Loading...';
   void setIndiaCases() async {
+    // print('data loaded');
     IndiaCases instance = IndiaCases();
     await instance.getCases();
 
@@ -30,6 +56,10 @@ class _Page1State extends State<Page1> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    if (_notification == AppLifecycleState.resumed) {
+      setIndiaCases();
+    }
     setIndiaCases();
   }
 
@@ -72,7 +102,8 @@ class _Page1State extends State<Page1> {
                 ),
                 tooltip: 'Refresh',
                 onPressed: () {
-                  setIndiaCases();
+                  // setIndiaCases();
+                  Navigator.push(context, SizeRoute(page: SplashScreen()));
                 },
               ),
             ),
