@@ -35,22 +35,41 @@ class _Page2State extends State<Page2> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.grey[800],
-      // backgroundColor: Colors.teal[800],
+      backgroundColor: Colors.teal[200],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
-          backgroundColor: Colors.black,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return Padding(
+                padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.menu,
+                    size: 30,
+                    color: Colors.amberAccent,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
+                ),
+              );
+            },
+          ),
+          backgroundColor: Colors.grey[850],
           titleSpacing: 2,
           title: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(
-              'States of India',
+              'STATES OF INDIA',
               style: TextStyle(
-                fontFamily: 'Lulo',
-                color: Colors.white,
-                fontSize: 21,
+                fontFamily: 'ProximaNova',
+                color: Colors.amberAccent,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2,
+                letterSpacing: 1.8,
               ),
             ),
           ),
@@ -91,19 +110,25 @@ class _Page2State extends State<Page2> {
                 Navigator.pushNamed(context, '/'); //pop it
               },
             ),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text(
-                'States',
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontFamily: 'ProximaNova',
-                  fontSize: 20,
-                ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.teal[200],
               ),
-              onTap: () {
-                Navigator.pushNamed(context, '/Page2');
-              },
+              child: ListTile(
+                leading: Icon(Icons.location_on),
+                title: Text(
+                  'States',
+                  style: TextStyle(
+                    // color: Colors.white,
+                    fontFamily: 'ProximaNova',
+                    fontSize: 20,
+                  ),
+                ),
+                selected: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/Page2');
+                },
+              ),
             ),
           ],
         ),

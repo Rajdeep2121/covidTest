@@ -33,24 +33,43 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[850],
+      backgroundColor: Colors.grey[800],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
+          leading: Builder(
+            builder: (BuildContext context) {
+              return Padding(
+                padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.amberAccent,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
+                ),
+              );
+            },
+          ),
           elevation: 100,
           // automaticallyImplyLeading: false,
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.grey[850],
           // titleSpacing: 2,
           title: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(
               'CASES IN INDIA',
               style: TextStyle(
-                fontFamily: 'Lulo',
-                color: Colors.white,
-                fontSize: 21,
+                fontFamily: 'ProximaNova',
+                color: Colors.amberAccent,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2,
+                letterSpacing: 1.8,
               ),
             ),
           ),
@@ -78,18 +97,24 @@ class _Page1State extends State<Page1> {
               accountEmail: Text(''),
             ),
             // SizedBox(height: 60),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                  fontFamily: 'ProximaNova',
-                  fontSize: 20,
-                ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.teal[200],
               ),
-              onTap: () {
-                Navigator.pushNamed(context, '/'); //pop it
-              },
+              child: ListTile(
+                leading: Icon(Icons.home),
+                title: Text(
+                  'Home',
+                  style: TextStyle(
+                    fontFamily: 'ProximaNova',
+                    fontSize: 20,
+                  ),
+                ),
+                selected: true,
+                onTap: () {
+                  Navigator.pushNamed(context, '/'); //pop it
+                },
+              ),
             ),
             ListTile(
               leading: Icon(Icons.location_on),
@@ -110,7 +135,9 @@ class _Page1State extends State<Page1> {
       ),
       body: Center(
         child: Container(
-          height: 500,
+          margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+          height: MediaQuery.of(context).size.height / 1.7,
+          // height: 500,
           decoration: BoxDecoration(
             color: Colors.grey[200],
             boxShadow: [
