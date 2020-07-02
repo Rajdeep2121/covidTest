@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../pages/page1.dart';
 import '../pages/page2.dart';
 import '../services/scaleroute.dart';
+import '../services/sizeroute.dart';
 
 class Page3 extends StatefulWidget {
   @override
@@ -83,6 +84,21 @@ class _Page3State extends State<Page3> {
             ),
           ),
           centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  size: 30,
+                  color: Colors.amberAccent,
+                ),
+                onPressed: () {
+                  Navigator.push(context, SizeRoute(page: Page3()));
+                },
+              ),
+            ),
+          ],
         ),
       ),
       drawer: Drawer(
@@ -117,7 +133,6 @@ class _Page3State extends State<Page3> {
                 ),
               ),
               onTap: () {
-                // Navigator.pushNamed(context, '/'); //pop it
                 Navigator.push(context, ScaleRoute(page: Page1()));
               },
             ),
@@ -126,14 +141,12 @@ class _Page3State extends State<Page3> {
               title: Text(
                 'States',
                 style: TextStyle(
-                  // color: Colors.white,
                   fontFamily: 'ProximaNova',
                   fontSize: 18,
                   letterSpacing: -0.5,
                 ),
               ),
               onTap: () {
-                // Navigator.pushNamed(context, '/Page2');
                 Navigator.push(context, ScaleRoute(page: Page2()));
               },
             ),
@@ -146,7 +159,6 @@ class _Page3State extends State<Page3> {
                 title: Text(
                   'Daily Cases',
                   style: TextStyle(
-                    // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     fontSize: 18,
                     letterSpacing: -0.5,
@@ -154,7 +166,6 @@ class _Page3State extends State<Page3> {
                 ),
                 selected: true,
                 onTap: () {
-                  // Navigator.pushNamed(context, '/Page3');
                   Navigator.push(context, ScaleRoute(page: Page3()));
                 },
               ),
@@ -185,16 +196,13 @@ class _Page3State extends State<Page3> {
                 itemCount: snapshot.data.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
+                    color: Colors.lightBlue[100],
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40.0),
                     ),
-                    // color: Colors.lightBlue[100],
-                    // color: Colors.teal[200],
                     elevation: 10,
                     child: Center(
                       child: Container(
-                        // margin: const EdgeInsets.all(5.0),
-                        // padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +210,6 @@ class _Page3State extends State<Page3> {
                             SizedBox(height: 10),
                             Text(
                               '${snapshot.data[index].date}',
-                              // "${snapshot.data[index].state}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 fontSize: 30,
@@ -212,7 +219,7 @@ class _Page3State extends State<Page3> {
                             Text(
                               "Cases: ${snapshot.data[index].listTotal}",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.red,
                               ),
@@ -220,7 +227,7 @@ class _Page3State extends State<Page3> {
                             Text(
                               "Recovered: ${snapshot.data[index].listRecd}",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.teal[500],
                               ),
@@ -228,7 +235,7 @@ class _Page3State extends State<Page3> {
                             Text(
                               "Deaths: ${snapshot.data[index].listDeaths}",
                               style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.grey[600],
                               ),

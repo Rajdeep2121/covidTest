@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../pages/page1.dart';
 import '../pages/page3.dart';
 import '../services/scaleroute.dart';
+import '../services/sizeroute.dart';
 
 class Page2 extends StatefulWidget {
   @override
@@ -75,6 +76,21 @@ class _Page2State extends State<Page2> {
             ),
           ),
           centerTitle: true,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  size: 30,
+                  color: Colors.amberAccent,
+                ),
+                onPressed: () {
+                  Navigator.push(context, SizeRoute(page: Page2()));
+                },
+              ),
+            ),
+          ],
         ),
       ),
       drawer: Drawer(
@@ -109,7 +125,6 @@ class _Page2State extends State<Page2> {
                 ),
               ),
               onTap: () {
-                // Navigator.pushNamed(context, '/'); //pop it
                 Navigator.push(context, ScaleRoute(page: Page1()));
               },
             ),

@@ -3,6 +3,7 @@ import '../services/cases.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
 import '../services/scaleroute.dart';
+import 'dart:async';
 
 class Page1 extends StatefulWidget {
   @override
@@ -10,15 +11,14 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-  String total = 'loading';
-  String active = 'loading';
-  String death = 'loading';
-  String recovered = 'loading';
+  String total = 'Loading...';
+  String active = 'Loading...';
+  String death = 'Loading...';
+  String recovered = 'Loading...';
   void setIndiaCases() async {
     IndiaCases instance = IndiaCases();
     await instance.getCases();
-    // print(instance.activeCases);
-    // print(instance.totalCases);
+
     setState(() {
       total = instance.totalCases;
       active = instance.activeCases;
@@ -60,9 +60,23 @@ class _Page1State extends State<Page1> {
             },
           ),
           elevation: 100,
-          // automaticallyImplyLeading: false,
           backgroundColor: Colors.grey[850],
-          // titleSpacing: 2,
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+              child: IconButton(
+                icon: Icon(
+                  Icons.refresh,
+                  color: Colors.amberAccent,
+                  size: 30,
+                ),
+                tooltip: 'Refresh',
+                onPressed: () {
+                  setIndiaCases();
+                },
+              ),
+            ),
+          ],
           title: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(
