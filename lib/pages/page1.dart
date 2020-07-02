@@ -99,7 +99,7 @@ class _Page1State extends State<Page1> {
             // SizedBox(height: 60),
             Container(
               decoration: BoxDecoration(
-                color: Colors.teal[200],
+                color: Colors.grey[300],
               ),
               child: ListTile(
                 leading: Icon(Icons.home),
@@ -128,6 +128,20 @@ class _Page1State extends State<Page1> {
               ),
               onTap: () {
                 Navigator.pushNamed(context, '/Page2');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.new_releases),
+              title: Text(
+                'Daily Cases',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Page3');
               },
             ),
           ],

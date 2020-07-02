@@ -2,31 +2,37 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 
-class Page2 extends StatefulWidget {
+class Page3 extends StatefulWidget {
   @override
-  _Page2State createState() => _Page2State();
+  _Page3State createState() => _Page3State();
 }
 
-class _Page2State extends State<Page2> {
+class _Page3State extends State<Page3> {
   Future<List<Data>> getCases() async {
-    var response = await get('https://api.covid19india.org/data.json');
+    var response = await get('https://api.covid19india.org/states_daily.json');
     var data = jsonDecode(response.body);
-    // print(data['statewise']);
-    // print(data['statewise']);
+    int len = data['states_daily'].length;
+
     List<Data> cases = [];
-    for (var u in data['statewise']) {
-      // print(u['active']);
-      Data user = Data(
-          state: u['state'],
-          confirmed: u["confirmed"],
-          active: u['active'],
-          deaths: u['deaths'],
-          recovered: u['recovered']);
-      cases.add(user);
-      if (u['state'] == 'Total' || u['state'] == 'State Unassigned') {
-        cases.removeLast();
-      }
+
+    var jconfd = len - 3;
+    var jdeath = len - 1;
+    var jrecovered = len - 2;
+    // var count = 0;
+    for (var count = 0; count < 20; count++) {
+      Data newuser = Data(
+        date: data['states_daily'][jconfd]['date'],
+        listTotal: data['states_daily'][jconfd]['tt'],
+        listRecd: data['states_daily'][jrecovered]['tt'],
+        listDeaths: data['states_daily'][jdeath]['tt'],
+      );
+      cases.add(newuser);
+      // count += 1;
+      jconfd -= 3;
+      jrecovered -= 3;
+      jdeath -= 3;
     }
+
     // print(cases);
     return cases;
   }
@@ -63,7 +69,7 @@ class _Page2State extends State<Page2> {
           title: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: Text(
-              'STATES OF INDIA',
+              'DAILY CASES',
               style: TextStyle(
                 fontFamily: 'ProximaNova',
                 color: Colors.amberAccent,
@@ -110,14 +116,28 @@ class _Page2State extends State<Page2> {
                 Navigator.pushNamed(context, '/'); //pop it
               },
             ),
+            ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text(
+                'States',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  fontSize: 20,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Page2');
+              },
+            ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],
               ),
               child: ListTile(
-                leading: Icon(Icons.location_on),
+                leading: Icon(Icons.new_releases),
                 title: Text(
-                  'States',
+                  'Daily Cases',
                   style: TextStyle(
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
@@ -126,23 +146,9 @@ class _Page2State extends State<Page2> {
                 ),
                 selected: true,
                 onTap: () {
-                  Navigator.pushNamed(context, '/Page2');
+                  Navigator.pushNamed(context, '/Page3');
                 },
               ),
-            ),
-            ListTile(
-              leading: Icon(Icons.new_releases),
-              title: Text(
-                'Daily Cases',
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontFamily: 'ProximaNova',
-                  fontSize: 20,
-                ),
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, '/Page3');
-              },
             ),
           ],
         ),
@@ -179,7 +185,8 @@ class _Page2State extends State<Page2> {
                           children: <Widget>[
                             SizedBox(height: 10),
                             Text(
-                              "${snapshot.data[index].state}",
+                              '${snapshot.data[index].date}',
+                              // "${snapshot.data[index].state}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 fontSize: 24,
@@ -187,28 +194,21 @@ class _Page2State extends State<Page2> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "Confirmed: ${snapshot.data[index].confirmed}",
+                              "Cases: ${snapshot.data[index].listTotal}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.red,
                               ),
                             ),
                             Text(
-                              "Active: ${snapshot.data[index].active}",
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                color: Colors.lightBlue[900],
-                              ),
-                            ),
-                            Text(
-                              "Recovered: ${snapshot.data[index].recovered}",
+                              "Recovered: ${snapshot.data[index].listRecd}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.teal[500],
                               ),
                             ),
                             Text(
-                              "Deaths: ${snapshot.data[index].deaths}",
+                              "Deaths: ${snapshot.data[index].listDeaths}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.grey[600],
@@ -231,10 +231,9 @@ class _Page2State extends State<Page2> {
 }
 
 class Data {
-  final String state;
-  final String confirmed;
-  final String active;
-  final String deaths;
-  final String recovered;
-  Data({this.state, this.confirmed, this.active, this.deaths, this.recovered});
+  String date;
+  String listTotal;
+  String listRecd;
+  String listDeaths;
+  Data({this.date, this.listTotal, this.listRecd, this.listDeaths});
 }

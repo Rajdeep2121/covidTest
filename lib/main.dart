@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'pages/page1.dart';
 import 'pages/page2.dart';
+import 'pages/page3.dart';
 import 'dart:async';
 
 void main() => runApp(MaterialApp(
       // home: Home(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/SplashScreen',
+      initialRoute: '/SplashScreen', //SplashScreen
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         '/': (context) => Page1(),
         '/Page2': (context) => Page2(),
+        '/Page3': (context) => Page3(),
       },
     ));
 
