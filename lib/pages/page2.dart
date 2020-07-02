@@ -34,8 +34,6 @@ class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[800],
-      backgroundColor: Colors.teal[200],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
@@ -103,7 +101,8 @@ class _Page2State extends State<Page2> {
                 'Home',
                 style: TextStyle(
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  letterSpacing: -0.5,
+                  fontSize: 18,
                 ),
               ),
               onTap: () {
@@ -121,7 +120,8 @@ class _Page2State extends State<Page2> {
                   style: TextStyle(
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
-                    fontSize: 20,
+                    letterSpacing: -0.5,
+                    fontSize: 18,
                   ),
                 ),
                 selected: true,
@@ -137,7 +137,8 @@ class _Page2State extends State<Page2> {
                 style: TextStyle(
                   // color: Colors.white,
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  letterSpacing: -0.5,
+                  fontSize: 18,
                 ),
               ),
               onTap: () {
@@ -148,6 +149,17 @@ class _Page2State extends State<Page2> {
         ),
       ),
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xff3b8d99),
+              Color(0xffaa4b6b),
+            ],
+            // colors: [Color(0xff2c3e50), Color(0xffbdc3c7)],
+          ),
+        ),
         padding: EdgeInsets.all(10),
         child: FutureBuilder(
           future: getCases(),

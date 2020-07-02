@@ -33,7 +33,7 @@ class _Page1State extends State<Page1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      // backgroundColor: Colors.grey[800],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
@@ -107,7 +107,8 @@ class _Page1State extends State<Page1> {
                   'Home',
                   style: TextStyle(
                     fontFamily: 'ProximaNova',
-                    fontSize: 20,
+                    letterSpacing: -0.5,
+                    fontSize: 18,
                   ),
                 ),
                 selected: true,
@@ -123,7 +124,8 @@ class _Page1State extends State<Page1> {
                 style: TextStyle(
                   // color: Colors.white,
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  letterSpacing: -0.5,
+                  fontSize: 18,
                 ),
               ),
               onTap: () {
@@ -137,7 +139,8 @@ class _Page1State extends State<Page1> {
                 style: TextStyle(
                   // color: Colors.white,
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  letterSpacing: -0.5,
+                  fontSize: 18,
                 ),
               ),
               onTap: () {
@@ -147,190 +150,204 @@ class _Page1State extends State<Page1> {
           ],
         ),
       ),
-      body: Center(
-        child: Container(
-          margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-          height: MediaQuery.of(context).size.height / 1.7,
-          // height: 500,
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            boxShadow: [
-              // color: Colors.white, //background color of box
-              BoxShadow(
-                color: Colors.black,
-                blurRadius: 50.0, // soften the shadow
-                spreadRadius: 0.2, //extend the shadow
-                offset: Offset(
-                  5.0, // Move to right 10  horizontally
-                  5.0, // Move to bottom 10 Vertically
-                ),
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            // begin: Alignment.topLeft,
+            // end: Alignment.bottomRight,
+            begin: const FractionalOffset(0.0, 0.5),
+            end: const FractionalOffset(0.0, 1.3),
+            colors: [
+              Color(0xff240b36),
+              Color(0xffc31432),
             ],
-            borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.red,
-                      ),
-                      boxShadow: [
-                        // color: Colors.white, //background color of box
-                        BoxShadow(
+        ),
+        child: Center(
+          child: Container(
+            margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+            height: MediaQuery.of(context).size.height / 1.7,
+            // height: 500,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              boxShadow: [
+                // color: Colors.white, //background color of box
+                BoxShadow(
+                  color: Colors.black,
+                  blurRadius: 50.0, // soften the shadow
+                  spreadRadius: 0.2, //extend the shadow
+                  offset: Offset(
+                    5.0, // Move to right 10  horizontally
+                    5.0, // Move to bottom 10 Vertically
+                  ),
+                ),
+              ],
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
                           color: Colors.red,
-                          blurRadius: 50.0, // soften the shadow
-                          spreadRadius: 0.2, //extend the shadow
-                          offset: Offset(
-                            5.0, // Move to right 10  horizontally
-                            5.0, // Move to bottom 10 Vertically
+                        ),
+                        boxShadow: [
+                          // color: Colors.white, //background color of box
+                          BoxShadow(
+                            color: Colors.red,
+                            blurRadius: 50.0, // soften the shadow
+                            spreadRadius: 0.2, //extend the shadow
+                            offset: Offset(
+                              5.0, // Move to right 10  horizontally
+                              5.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                        color: Colors.red,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                      margin: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(20),
+                      width: 160,
+                      height: 160,
+                      child: Center(
+                        child: Text(
+                          'Confirmed\n$total',
+                          style: TextStyle(
+                            fontFamily: 'ProximaNova',
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
-                        )
-                      ],
-                      color: Colors.red,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(20),
-                    width: 160,
-                    height: 160,
-                    child: Center(
-                      child: Text(
-                        'Confirmed\n$total',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blue[600],
-                      ),
-                      boxShadow: [
-                        // color: Colors.white, //background color of box
-                        BoxShadow(
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
                           color: Colors.blue[600],
-                          blurRadius: 50.0, // soften the shadow
-                          spreadRadius: 0.2, //extend the shadow
-                          offset: Offset(
-                            5.0, // Move to right 10  horizontally
-                            5.0, // Move to bottom 10 Vertically
+                        ),
+                        boxShadow: [
+                          // color: Colors.white, //background color of box
+                          BoxShadow(
+                            color: Colors.blue[600],
+                            blurRadius: 50.0, // soften the shadow
+                            spreadRadius: 0.2, //extend the shadow
+                            offset: Offset(
+                              5.0, // Move to right 10  horizontally
+                              5.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                        color: Colors.blue[600],
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                      width: 160,
+                      height: 160,
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(10),
+                      child: Center(
+                        child: Text(
+                          'Active\n$active',
+                          style: TextStyle(
+                            fontFamily: 'ProximaNova',
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
-                        )
-                      ],
-                      color: Colors.blue[600],
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    width: 160,
-                    height: 160,
-                    padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        'Active\n$active',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.green[500],
-                      ),
-                      boxShadow: [
-                        // color: Colors.white, //background color of box
-                        BoxShadow(
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
                           color: Colors.green[500],
-                          blurRadius: 50.0, // soften the shadow
-                          spreadRadius: 0.2, //extend the shadow
-                          offset: Offset(
-                            5.0, // Move to right 10  horizontally
-                            5.0, // Move to bottom 10 Vertically
+                        ),
+                        boxShadow: [
+                          // color: Colors.white, //background color of box
+                          BoxShadow(
+                            color: Colors.green[500],
+                            blurRadius: 50.0, // soften the shadow
+                            spreadRadius: 0.2, //extend the shadow
+                            offset: Offset(
+                              5.0, // Move to right 10  horizontally
+                              5.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                        color: Colors.green[500],
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                      width: 160,
+                      height: 160,
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(10),
+                      child: Center(
+                        child: Text(
+                          'Recovered\n$recovered',
+                          style: TextStyle(
+                            fontFamily: 'ProximaNova',
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
-                        )
-                      ],
-                      color: Colors.green[500],
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    width: 160,
-                    height: 160,
-                    padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        'Recovered\n$recovered',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey[800],
-                      ),
-                      boxShadow: [
-                        // color: Colors.white, //background color of box
-                        BoxShadow(
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
                           color: Colors.grey[800],
-                          blurRadius: 50.0, // soften the shadow
-                          spreadRadius: 0.2, //extend the shadow
-                          offset: Offset(
-                            5.0, // Move to right 10  horizontally
-                            5.0, // Move to bottom 10 Vertically
+                        ),
+                        boxShadow: [
+                          // color: Colors.white, //background color of box
+                          BoxShadow(
+                            color: Colors.grey[800],
+                            blurRadius: 50.0, // soften the shadow
+                            spreadRadius: 0.2, //extend the shadow
+                            offset: Offset(
+                              5.0, // Move to right 10  horizontally
+                              5.0, // Move to bottom 10 Vertically
+                            ),
+                          )
+                        ],
+                        color: Colors.grey[800],
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                      ),
+                      width: 160,
+                      height: 160,
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(10),
+                      child: Center(
+                        child: Text(
+                          'Deaths\n$death',
+                          style: TextStyle(
+                            fontFamily: 'ProximaNova',
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
-                        )
-                      ],
-                      color: Colors.grey[800],
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    width: 160,
-                    height: 160,
-                    padding: EdgeInsets.all(20),
-                    margin: EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        'Deaths\n$death',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-              Divider(
-                color: Colors.grey[500],
-              ),
-            ],
+                    )
+                  ],
+                ),
+                Divider(
+                  color: Colors.grey[500],
+                ),
+              ],
+            ),
           ),
         ),
       ),

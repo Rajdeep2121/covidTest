@@ -7,7 +7,7 @@ import 'dart:async';
 void main() => runApp(MaterialApp(
       // home: Home(),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/SplashScreen', //SplashScreen
+      initialRoute: '/SplashScreen',
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         '/': (context) => Page1(),
@@ -86,6 +86,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     CircularProgressIndicator(
+                      strokeWidth: 7,
+                      valueColor: AlwaysStoppedAnimation(Colors.blue),
                       backgroundColor: Colors.greenAccent,
                     ),
                     Padding(

@@ -40,8 +40,8 @@ class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[800],
-      backgroundColor: Colors.teal[200],
+      // backgroundColor: Colors.grey[600],
+      // backgroundColor: Colors.teal[200],
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80),
         child: AppBar(
@@ -109,7 +109,8 @@ class _Page3State extends State<Page3> {
                 'Home',
                 style: TextStyle(
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  fontSize: 18,
+                  letterSpacing: -0.5,
                 ),
               ),
               onTap: () {
@@ -123,7 +124,8 @@ class _Page3State extends State<Page3> {
                 style: TextStyle(
                   // color: Colors.white,
                   fontFamily: 'ProximaNova',
-                  fontSize: 20,
+                  fontSize: 18,
+                  letterSpacing: -0.5,
                 ),
               ),
               onTap: () {
@@ -141,7 +143,8 @@ class _Page3State extends State<Page3> {
                   style: TextStyle(
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
-                    fontSize: 20,
+                    fontSize: 18,
+                    letterSpacing: -0.5,
                   ),
                 ),
                 selected: true,
@@ -154,6 +157,13 @@ class _Page3State extends State<Page3> {
         ),
       ),
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xff076585), Color(0xfffff)],
+          ),
+        ),
         padding: EdgeInsets.all(10),
         child: FutureBuilder(
           future: getCases(),
@@ -177,8 +187,8 @@ class _Page3State extends State<Page3> {
                     elevation: 10,
                     child: Center(
                       child: Container(
-                        margin: const EdgeInsets.all(5.0),
-                        padding: const EdgeInsets.all(10.0),
+                        // margin: const EdgeInsets.all(5.0),
+                        // padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -189,13 +199,14 @@ class _Page3State extends State<Page3> {
                               // "${snapshot.data[index].state}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
-                                fontSize: 24,
+                                fontSize: 30,
                               ),
                             ),
                             SizedBox(height: 10),
                             Text(
                               "Cases: ${snapshot.data[index].listTotal}",
                               style: TextStyle(
+                                fontSize: 18,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.red,
                               ),
@@ -203,6 +214,7 @@ class _Page3State extends State<Page3> {
                             Text(
                               "Recovered: ${snapshot.data[index].listRecd}",
                               style: TextStyle(
+                                fontSize: 18,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.teal[500],
                               ),
@@ -210,6 +222,7 @@ class _Page3State extends State<Page3> {
                             Text(
                               "Deaths: ${snapshot.data[index].listDeaths}",
                               style: TextStyle(
+                                fontSize: 18,
                                 fontFamily: 'ProximaNova',
                                 color: Colors.grey[600],
                               ),
