@@ -20,7 +20,8 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
     _notification = state;
     switch (state) {
       case AppLifecycleState.resumed:
-        setIndiaCases();
+        // setIndiaCases();
+        Navigator.push(context, SizeRoute(page: SplashScreen()));
         print("app in resumed");
         break;
       case AppLifecycleState.inactive:
