@@ -3,9 +3,13 @@ import 'pages/page1.dart';
 import 'pages/page2.dart';
 import 'pages/page3.dart';
 import 'dart:async';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MaterialApp(
-      // home: Home(),
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/SplashScreen',
       routes: {
@@ -15,6 +19,8 @@ void main() => runApp(MaterialApp(
         '/Page3': (context) => Page3(),
       },
     ));
+  });
+}
 
 class SplashScreen extends StatefulWidget {
   @override
