@@ -13,7 +13,7 @@ void main() {
       .then((_) {
     runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/Page5', //SplashScreen
+      initialRoute: '/SplashScreen',
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         '/': (context) => Page1(),
