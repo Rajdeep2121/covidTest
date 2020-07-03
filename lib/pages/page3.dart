@@ -108,12 +108,12 @@ class _Page3State extends State<Page3> {
           children: <Widget>[
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.grey[800],
+                color: Colors.black,
               ),
               accountName: Text(
                 'COVID 19 Tracker',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.amber,
                   fontFamily: 'ProximaNova',
                   fontSize: 25,
                 ),
@@ -142,7 +142,10 @@ class _Page3State extends State<Page3> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.location_on),
+              leading: Icon(
+                Icons.location_on,
+                size: 35,
+              ),
               title: Text(
                 'States',
                 style: TextStyle(
@@ -160,7 +163,10 @@ class _Page3State extends State<Page3> {
                 color: Colors.red[100],
               ),
               child: ListTile(
-                leading: Icon(Icons.new_releases),
+                leading: Image.asset(
+                  'assets/graph.jpg',
+                  height: 32,
+                ),
                 title: Text(
                   'Daily Cases',
                   style: TextStyle(
