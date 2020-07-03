@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/cases.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
+import '../pages/page4.dart';
 import '../services/scaleroute.dart';
 import '../services/sizeroute.dart';
 import '../main.dart';
@@ -197,6 +198,22 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               onTap: () {
                 // Navigator.pushNamed(context, '/Page3');
                 Navigator.push(context, ScaleRoute(page: Page3()));
+              },
+            ),
+            ListTile(
+              // leading: Icon(Icons.new_releases),
+              title: Text(
+                'Symptoms',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  letterSpacing: -0.5,
+                  fontSize: 18,
+                ),
+              ),
+              onTap: () {
+                // Navigator.pushNamed(context, '/Page3');
+                Navigator.push(context, ScaleRoute(page: Page4()));
               },
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import '../pages/page1.dart';
 import '../pages/page3.dart';
+import '../pages/page4.dart';
 import '../services/scaleroute.dart';
 import '../services/sizeroute.dart';
 
@@ -164,6 +165,22 @@ class _Page2State extends State<Page2> {
               onTap: () {
                 // Navigator.pushNamed(context, '/Page3');
                 Navigator.push(context, ScaleRoute(page: Page3()));
+              },
+            ),
+            ListTile(
+              // leading: Icon(Icons.new_releases),
+              title: Text(
+                'Symptoms',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  letterSpacing: -0.5,
+                  fontSize: 18,
+                ),
+              ),
+              onTap: () {
+                // Navigator.pushNamed(context, '/Page3');
+                Navigator.push(context, ScaleRoute(page: Page4()));
               },
             ),
           ],
