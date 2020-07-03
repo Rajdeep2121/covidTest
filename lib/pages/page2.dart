@@ -130,7 +130,7 @@ class _Page2State extends State<Page2> {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.red[100],
               ),
               child: ListTile(
                 leading: Icon(Icons.location_on),

@@ -148,7 +148,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
             // SizedBox(height: 60),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.red[100],
               ),
               child: ListTile(
                 leading: Icon(Icons.home),
