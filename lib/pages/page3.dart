@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../pages/page1.dart';
 import '../pages/page2.dart';
 import '../pages/page4.dart';
+import '../pages/page5.dart';
 import '../services/scaleroute.dart';
 import '../services/sizeroute.dart';
 
@@ -124,7 +125,10 @@ class _Page3State extends State<Page3> {
             ),
             // SizedBox(height: 60),
             ListTile(
-              leading: Icon(Icons.home),
+              leading: Image.asset(
+                'assets/india.png',
+                height: 38,
+              ),
               title: Text(
                 'Home',
                 style: TextStyle(
@@ -172,7 +176,10 @@ class _Page3State extends State<Page3> {
               ),
             ),
             ListTile(
-              // leading: Icon(Icons.location_on),
+              leading: Image.asset(
+                'assets/cough.png',
+                height: 38,
+              ),
               title: Text(
                 'Symptoms',
                 style: TextStyle(
@@ -183,6 +190,23 @@ class _Page3State extends State<Page3> {
               ),
               onTap: () {
                 Navigator.push(context, ScaleRoute(page: Page4()));
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                'assets/mask.png',
+                height: 38,
+              ),
+              title: Text(
+                'Prevention',
+                style: TextStyle(
+                  fontFamily: 'ProximaNova',
+                  fontSize: 18,
+                  letterSpacing: -0.5,
+                ),
+              ),
+              onTap: () {
+                Navigator.push(context, ScaleRoute(page: Page5()));
               },
             ),
           ],

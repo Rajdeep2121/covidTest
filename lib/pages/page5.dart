@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import '../pages/page1.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
-import '../pages/page5.dart';
+import '../pages/page4.dart';
 import '../services/scaleroute.dart';
 
-class Page4 extends StatefulWidget {
+class Page5 extends StatefulWidget {
   @override
-  _Page4State createState() => _Page4State();
+  _Page5State createState() => _Page5State();
 }
 
-class _Page4State extends State<Page4> {
-  final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
+class _Page5State extends State<Page5> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldkey,
+      key: _scaffoldKey,
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -84,36 +84,13 @@ class _Page4State extends State<Page4> {
                 Navigator.push(context, ScaleRoute(page: Page3()));
               },
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.red[100],
-              ),
-              child: ListTile(
-                leading: Image.asset(
-                  'assets/cough.png',
-                  height: 38,
-                ),
-                title: Text(
-                  'Symptoms',
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 18,
-                    letterSpacing: -0.5,
-                  ),
-                ),
-                selected: true,
-                onTap: () {
-                  Navigator.push(context, ScaleRoute(page: Page4()));
-                },
-              ),
-            ),
             ListTile(
               leading: Image.asset(
-                'assets/mask.png',
+                'assets/cough.png',
                 height: 38,
               ),
               title: Text(
-                'Prevention',
+                'Symptoms',
                 style: TextStyle(
                   fontFamily: 'ProximaNova',
                   fontSize: 18,
@@ -122,24 +99,45 @@ class _Page4State extends State<Page4> {
               ),
               // selected: true,
               onTap: () {
-                Navigator.push(context, ScaleRoute(page: Page5()));
+                Navigator.push(context, ScaleRoute(page: Page4()));
               },
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.red[100],
+              ),
+              child: ListTile(
+                leading: Image.asset(
+                  'assets/mask.png',
+                  height: 38,
+                ),
+                title: Text(
+                  'Prevention',
+                  style: TextStyle(
+                    fontFamily: 'ProximaNova',
+                    fontSize: 18,
+                    letterSpacing: -0.5,
+                  ),
+                ),
+                selected: true,
+                onTap: () {
+                  Navigator.push(context, ScaleRoute(page: Page5()));
+                },
+              ),
             ),
           ],
         ),
       ),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.red[600],
+              color: Colors.green,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(100),
-                // bottomLeft: Radius.circular(20),
               ),
             ),
             child: ListView(
@@ -159,7 +157,7 @@ class _Page4State extends State<Page4> {
                                 color: Colors.black,
                               ),
                               onPressed: () =>
-                                  _scaffoldkey.currentState.openDrawer(),
+                                  _scaffoldKey.currentState.openDrawer(),
                             ),
                           ),
                         ],
@@ -168,17 +166,20 @@ class _Page4State extends State<Page4> {
                     Padding(
                       padding: EdgeInsets.only(top: 20, left: 20),
                       child: Text(
-                        'SYMPTOMS',
+                        'Prevention',
                         style: TextStyle(
                           fontFamily: 'ProximaNova',
                           fontSize: 30,
                         ),
                       ),
                     ),
-                    Image.asset(
-                      'assets/cough.png',
-                      width: 60,
-                      height: 60,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 10),
+                      child: Image.asset(
+                        'assets/mask.png',
+                        width: 60,
+                        height: 60,
+                      ),
                     ),
                   ],
                 ),
@@ -188,62 +189,41 @@ class _Page4State extends State<Page4> {
           Container(
             margin: EdgeInsets.all(10),
             child: Card(
-              elevation: 10,
               color: Colors.lightBlue[200],
+              elevation: 10,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20),
                 child: Text(
-                  'COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.',
+                  'Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'ProximaNova',
                     fontSize: 20,
-                    // fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
+            // margin: EdgeInsets.all(10),
+            margin: EdgeInsets.fromLTRB(10, 30, 10, 10),
             child: Card(
-              elevation: 10,
-              color: Colors.red[100],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'Most common symptoms:\n• fever\n• dry cough\n• tiredness\n• difficulty breathing or shortness of breath\n• chest pain or pressure\n• loss of speech or movement',
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 16,
-                    // fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Card(
-              elevation: 10,
               color: Colors.green[200],
+              elevation: 10,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20),
                 child: Text(
-                  'Less common symptoms:\n• aches and pains\n• sore throat\n• diarrhoea\n• conjunctivitis\n• headache\n• loss of taste or smell\n• a rash on skin, or discolouration of fingers or toes',
+                  'To prevent the spread of COVID-19:\n\n• Clean your hands often. Use soap and water, or an alcohol-based hand rub.\n• Maintain a safe distance from anyone who is coughing or sneezing.\n• Wear a mask when physical distancing is not possible.\n• Don’t touch your eyes, nose or mouth.\n• Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.\n• Stay home if you feel unwell.\n• If you have a fever, cough and difficulty breathing, seek medical attention.',
+                  // textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'ProximaNova',
                     fontSize: 14,
-                    // fontStyle: FontStyle.italic,
                   ),
                 ),
               ),

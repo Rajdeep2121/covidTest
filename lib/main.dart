@@ -3,6 +3,7 @@ import 'pages/page1.dart';
 import 'pages/page2.dart';
 import 'pages/page3.dart';
 import 'pages/page4.dart';
+import 'pages/page5.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
 
@@ -12,13 +13,14 @@ void main() {
       .then((_) {
     runApp(new MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/SplashScreen', //SplashScreen
+      initialRoute: '/Page5', //SplashScreen
       routes: {
         '/SplashScreen': (context) => SplashScreen(),
         '/': (context) => Page1(),
         '/Page2': (context) => Page2(),
         '/Page3': (context) => Page3(),
         '/Page4': (context) => Page4(),
+        '/Page5': (context) => Page5()
       },
     ));
   });

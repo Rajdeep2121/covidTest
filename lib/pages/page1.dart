@@ -4,6 +4,7 @@ import '../services/cases.dart';
 import '../pages/page2.dart';
 import '../pages/page3.dart';
 import '../pages/page4.dart';
+import '../pages/page5.dart';
 import '../services/scaleroute.dart';
 import '../services/sizeroute.dart';
 import '../main.dart';
@@ -152,7 +153,10 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                 color: Colors.red[100],
               ),
               child: ListTile(
-                leading: Icon(Icons.home),
+                leading: Image.asset(
+                  'assets/india.png',
+                  height: 38,
+                ),
                 title: Text(
                   'Home',
                   style: TextStyle(
@@ -201,7 +205,10 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               },
             ),
             ListTile(
-              // leading: Icon(Icons.new_releases),
+              leading: Image.asset(
+                'assets/cough.png',
+                height: 38,
+              ),
               title: Text(
                 'Symptoms',
                 style: TextStyle(
@@ -214,6 +221,25 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               onTap: () {
                 // Navigator.pushNamed(context, '/Page3');
                 Navigator.push(context, ScaleRoute(page: Page4()));
+              },
+            ),
+            ListTile(
+              leading: Image.asset(
+                'assets/mask.png',
+                height: 38,
+              ),
+              title: Text(
+                'Prevention',
+                style: TextStyle(
+                  // color: Colors.white,
+                  fontFamily: 'ProximaNova',
+                  letterSpacing: -0.5,
+                  fontSize: 18,
+                ),
+              ),
+              onTap: () {
+                // Navigator.pushNamed(context, '/Page3');
+                Navigator.push(context, ScaleRoute(page: Page5()));
               },
             ),
           ],
