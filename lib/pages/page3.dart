@@ -213,7 +213,7 @@ class _Page3State extends State<Page3> {
                   return Card(
                     color: Colors.lightBlue[100],
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     elevation: 10,
                     child: Center(
@@ -223,37 +223,44 @@ class _Page3State extends State<Page3> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(height: 10),
-                            Text(
-                              '${snapshot.data[index].date}',
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 30,
+                            Center(
+                              child: Text(
+                                '${snapshot.data[index].date}',
+                                style: TextStyle(
+                                  fontFamily: 'ProximaNova',
+                                  fontSize: 30,
+                                ),
                               ),
                             ),
                             SizedBox(height: 10),
-                            Text(
-                              "Cases: ${snapshot.data[index].listTotal}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'ProximaNova',
-                                color: Colors.red,
-                              ),
-                            ),
-                            Text(
-                              "Recovered: ${snapshot.data[index].listRecd}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'ProximaNova',
-                                color: Colors.teal[500],
-                              ),
-                            ),
-                            Text(
-                              "Deaths: ${snapshot.data[index].listDeaths}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'ProximaNova',
-                                color: Colors.grey[600],
-                              ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text(
+                                  "Cases: ${snapshot.data[index].listTotal}",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'ProximaNova',
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                Text(
+                                  "Recovered: ${snapshot.data[index].listRecd}",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'ProximaNova',
+                                    color: Colors.teal[500],
+                                  ),
+                                ),
+                                Text(
+                                  "Deaths: ${snapshot.data[index].listDeaths}",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'ProximaNova',
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                              ],
                             ),
                             SizedBox(height: 10),
                           ],
