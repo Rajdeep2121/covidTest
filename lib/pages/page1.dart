@@ -66,67 +66,11 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
     setIndiaCases();
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[800],
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return Padding(
-                padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.amberAccent,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  tooltip:
-                      MaterialLocalizations.of(context).openAppDrawerTooltip,
-                ),
-              );
-            },
-          ),
-          elevation: 100,
-          backgroundColor: Colors.grey[850],
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.refresh,
-                  color: Colors.amberAccent,
-                  size: 30,
-                ),
-                tooltip: 'Refresh',
-                onPressed: () {
-                  // setIndiaCases();
-                  Navigator.push(context, SizeRoute(page: SplashScreen()));
-                },
-              ),
-            ),
-          ],
-          title: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Text(
-              'CASES IN INDIA',
-              style: TextStyle(
-                fontFamily: 'ProximaNova',
-                color: Colors.amberAccent,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.8,
-              ),
-            ),
-          ),
-          centerTitle: true,
-        ),
-      ),
+      key: _scaffoldKey,
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -251,206 +195,235 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
           ],
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            // begin: Alignment.topLeft,
-            // end: Alignment.bottomRight,
-            begin: const FractionalOffset(0.0, 0.5),
-            end: const FractionalOffset(0.0, 1.3),
-            colors: [
-              Color(0xff240b36),
-              Color(0xffc31432),
-            ],
-          ),
-        ),
-        child: Center(
-          child: Container(
-            margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            height: MediaQuery.of(context).size.height / 1.7,
-            // height: 500,
-            decoration: BoxDecoration(
-              color: Colors.grey[200],
-              boxShadow: [
-                // color: Colors.white, //background color of box
-                BoxShadow(
-                  color: Colors.black,
-                  blurRadius: 50.0, // soften the shadow
-                  spreadRadius: 0.2, //extend the shadow
-                  offset: Offset(
-                    5.0, // Move to right 10  horizontally
-                    5.0, // Move to bottom 10 Vertically
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height / 5,
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        Icons.menu,
+                        // color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20, top: 20),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.refresh,
+                          // color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () => Navigator.push(
+                            context, SizeRoute(page: SplashScreen())),
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'Cases in India',
+                    style: TextStyle(
+                      fontFamily: 'SFBold',
+                      fontWeight: FontWeight.bold,
+                      // letterSpacing: 2,
+                      fontSize: 50,
+                    ),
                   ),
                 ),
               ],
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.red,
-                        ),
-                        boxShadow: [
-                          // color: Colors.white, //background color of box
-                          BoxShadow(
-                            color: Colors.red,
-                            blurRadius: 50.0, // soften the shadow
-                            spreadRadius: 0.2, //extend the shadow
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          )
-                        ],
-                        color: Colors.red,
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                      ),
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(20),
-                      width: 160,
-                      height: 160,
-                      child: Center(
-                        child: Text(
-                          'Confirmed\n$total',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNova',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.blue[600],
-                        ),
-                        boxShadow: [
-                          // color: Colors.white, //background color of box
-                          BoxShadow(
-                            color: Colors.blue[600],
-                            blurRadius: 50.0, // soften the shadow
-                            spreadRadius: 0.2, //extend the shadow
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          )
-                        ],
-                        color: Colors.blue[600],
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                      ),
-                      width: 160,
-                      height: 160,
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.all(10),
-                      child: Center(
-                        child: Text(
-                          'Active\n$active',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNova',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  // crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.green[500],
-                        ),
-                        boxShadow: [
-                          // color: Colors.white, //background color of box
-                          BoxShadow(
-                            color: Colors.green[500],
-                            blurRadius: 50.0, // soften the shadow
-                            spreadRadius: 0.2, //extend the shadow
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          )
-                        ],
-                        color: Colors.green[500],
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                      ),
-                      width: 160,
-                      height: 160,
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.all(10),
-                      child: Center(
-                        child: Text(
-                          'Recovered\n$recovered',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNova',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey[800],
-                        ),
-                        boxShadow: [
-                          // color: Colors.white, //background color of box
-                          BoxShadow(
-                            color: Colors.grey[800],
-                            blurRadius: 50.0, // soften the shadow
-                            spreadRadius: 0.2, //extend the shadow
-                            offset: Offset(
-                              5.0, // Move to right 10  horizontally
-                              5.0, // Move to bottom 10 Vertically
-                            ),
-                          )
-                        ],
-                        color: Colors.grey[800],
-                        borderRadius: BorderRadius.all(Radius.circular(30)),
-                      ),
-                      width: 160,
-                      height: 160,
-                      padding: EdgeInsets.all(20),
-                      margin: EdgeInsets.all(10),
-                      child: Center(
-                        child: Text(
-                          'Deaths\n$death',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNova',
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Divider(
-                  color: Colors.grey[500],
-                ),
-              ],
             ),
           ),
-        ),
+          Card(
+            margin: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 20),
+            elevation: 70,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            color: Colors.red[500],
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        topLeft: Radius.circular(10),
+                      ),
+                      color: Colors.red[700],
+                    ),
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Confirmed:',
+                      style: TextStyle(
+                        fontFamily: 'ProximaNova',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '$total',
+                    style: TextStyle(
+                      fontFamily: 'ProximaNova',
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            elevation: 70,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            color: Colors.blue[700],
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        topLeft: Radius.circular(10),
+                      ),
+                      color: Colors.blue[800],
+                    ),
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Active:',
+                      style: TextStyle(
+                        fontFamily: 'ProximaNova',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '$active',
+                    style: TextStyle(
+                      fontFamily: 'ProximaNova',
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            elevation: 70,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            color: Color(0xff0f9d58),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        topLeft: Radius.circular(10),
+                      ),
+                      color: Colors.green[700],
+                    ),
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Recovered:',
+                      style: TextStyle(
+                        fontFamily: 'ProximaNova',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '$recovered',
+                    style: TextStyle(
+                      fontFamily: 'ProximaNova',
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+            elevation: 70,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            color: Colors.grey[800],
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                        topLeft: Radius.circular(10),
+                      ),
+                      color: Colors.black,
+                    ),
+                    padding: EdgeInsets.all(10),
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Deaths:',
+                      style: TextStyle(
+                        fontFamily: 'ProximaNova',
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '$death',
+                    style: TextStyle(
+                      fontFamily: 'ProximaNova',
+                      color: Colors.white,
+                      fontSize: 40,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -71,12 +71,18 @@ flutter:
     - family: ProximaNova
       fonts:
         - asset: fonts/ProximaNovaBold.otf
-    - family: Lulo
-      fonts:
-        - asset: fonts/Lulo.ttf
     - family: Kaushan
       fonts:
         - asset: fonts/KaushanScript-Regular.ttf
+    - family: Helvetica
+      fonts:
+        - asset: fonts/HelveticaNeueBold.ttf
+    - family: SFBlack
+      fonts:
+        - asset: fonts/SFUIDisplayBlack.otf
+    - family: SFBold
+      fonts:
+        - asset: fonts/SFUIDisplayBold.ttf
         
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
