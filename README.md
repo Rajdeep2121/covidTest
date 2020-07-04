@@ -1,6 +1,7 @@
 # covidTest
 
-A new Flutter project.
+Flutter app to track COVID-19 statistics.<br>
+Also, <a href="https://covid-live-track.herokuapp.com/">Click here</a> visit the website.
 
 # Instructions
 
@@ -12,9 +13,9 @@ Clone this repo.<br>
 Plugin your phone and follow the below instructions:<br>
 In the directory run these commands,<br>
 ```
-flutter pub get<br> 
-flutter build apk --split-per-abi<br>
-flutter install<br>
+flutter pub get
+flutter build apk --split-per-abi
+flutter install
 ```
 
 # Screenshots
