@@ -15,3 +15,10 @@ In the directory run these commands,<br>
 >flutter build apk --split-per-abi<br>
 >flutter install<br>
 
+# Screenshots
+
+<img src='Screenshots/1.jpg' height="500">
+<img src='Screenshots/2.jpg' height="500">
+<img src='Screenshots/3.jpg' height="500">
+<img src='Screenshots/4.jpg' height="500">
+<img src='Screenshots/5.jpg' height="500">
