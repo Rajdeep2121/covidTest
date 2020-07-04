@@ -95,6 +95,9 @@ flutter:
     - family: SFThin
       fonts:
         - asset: fonts/SFUIDisplayThin.otf
+    - family: SFRound
+      fonts:
+        - asset: fonts/SFRounded.ttf
         
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

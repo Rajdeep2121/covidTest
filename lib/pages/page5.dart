@@ -141,7 +141,7 @@ class _Page5State extends State<Page5> {
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.green,
+              // color: Colors.green,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(100),
               ),
@@ -160,7 +160,7 @@ class _Page5State extends State<Page5> {
                               icon: Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.white,
+                                // color: Colors.white,
                               ),
                               onPressed: () =>
                                   _scaffoldKey.currentState.openDrawer(),
@@ -174,8 +174,9 @@ class _Page5State extends State<Page5> {
                       child: Text(
                         'Prevention',
                         style: TextStyle(
-                          fontFamily: 'SFBold',
-                          color: Colors.white,
+                          fontFamily: 'SFRounded',
+                          // color: Colors.white,
+                          fontWeight: FontWeight.bold,
                           fontSize: 40,
                         ),
                       ),
@@ -194,46 +195,61 @@ class _Page5State extends State<Page5> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            child: Card(
-              color: Colors.lightBlue[200],
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  'Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 20,
-                  ),
-                ),
+            margin: EdgeInsets.only(left: 10, right: 10),
+            decoration: BoxDecoration(
+              color: Colors.red[100],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60),
+                topRight: Radius.circular(60),
               ),
             ),
-          ),
-          Container(
-            // margin: EdgeInsets.all(10),
-            margin: EdgeInsets.fromLTRB(10, 30, 10, 10),
-            child: Card(
-              color: Colors.green[200],
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  'To prevent the spread of COVID-19:\n\n• Clean your hands often. Use soap and water, or an alcohol-based hand rub.\n• Maintain a safe distance from anyone who is coughing or sneezing.\n• Wear a mask when physical distancing is not possible.\n• Don’t touch your eyes, nose or mouth.\n• Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.\n• Stay home if you feel unwell.\n• If you have a fever, cough and difficulty breathing, seek medical attention.',
-                  // textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 14,
+            height: MediaQuery.of(context).size.height - 170,
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Card(
+                    color: Colors.lightBlue[200],
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        'Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  // margin: EdgeInsets.all(10),
+                  margin: EdgeInsets.fromLTRB(10, 30, 10, 10),
+                  child: Card(
+                    color: Colors.green[200],
+                    elevation: 10,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Text(
+                        'To prevent the spread of COVID-19:\n\n• Clean your hands often. Use soap and water, or an alcohol-based hand rub.\n• Maintain a safe distance from anyone who is coughing or sneezing.\n• Wear a mask when physical distancing is not possible.\n• Don’t touch your eyes, nose or mouth.\n• Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.\n• Stay home if you feel unwell.\n• If you have a fever, cough and difficulty breathing, seek medical attention.',
+                        // textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

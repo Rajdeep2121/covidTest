@@ -142,7 +142,7 @@ class _Page4State extends State<Page4> {
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: Colors.red[600],
+              // color: Colors.red[600],
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(100),
                 // bottomLeft: Radius.circular(20),
@@ -162,7 +162,7 @@ class _Page4State extends State<Page4> {
                               icon: Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.white,
+                                // color: Colors.white,
                               ),
                               onPressed: () =>
                                   _scaffoldkey.currentState.openDrawer(),
@@ -176,8 +176,9 @@ class _Page4State extends State<Page4> {
                       child: Text(
                         'Symptoms',
                         style: TextStyle(
-                          fontFamily: 'SFBold',
-                          color: Colors.white,
+                          fontFamily: 'SFRounded',
+                          fontWeight: FontWeight.bold,
+                          // color: Colors.white,
                           fontSize: 40,
                         ),
                       ),
@@ -193,67 +194,82 @@ class _Page4State extends State<Page4> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            child: Card(
-              elevation: 10,
-              color: Colors.lightBlue[200],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 20,
-                    // fontStyle: FontStyle.italic,
-                  ),
-                ),
+            margin: EdgeInsets.only(left: 10, right: 10),
+            decoration: BoxDecoration(
+              color: Colors.amber[100],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60),
+                topRight: Radius.circular(60),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Card(
-              elevation: 10,
-              color: Colors.red[100],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'Most common symptoms:\n• fever\n• dry cough\n• tiredness\n• difficulty breathing or shortness of breath\n• chest pain or pressure\n• loss of speech or movement',
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 16,
-                    // fontStyle: FontStyle.italic,
+            height: MediaQuery.of(context).size.height - 170,
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Card(
+                    elevation: 10,
+                    color: Colors.lightBlue[200],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        'COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          fontSize: 20,
+                          // fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: Card(
-              elevation: 10,
-              color: Colors.green[200],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Text(
-                  'Less common symptoms:\n• aches and pains\n• sore throat\n• diarrhoea\n• conjunctivitis\n• headache\n• loss of taste or smell\n• a rash on skin, or discolouration of fingers or toes',
-                  style: TextStyle(
-                    fontFamily: 'ProximaNova',
-                    fontSize: 14,
-                    // fontStyle: FontStyle.italic,
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Card(
+                    elevation: 10,
+                    color: Colors.red[100],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        'Most common symptoms:\n• fever\n• dry cough\n• tiredness\n• difficulty breathing or shortness of breath\n• chest pain or pressure\n• loss of speech or movement',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          fontSize: 16,
+                          // fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.all(10),
+                  child: Card(
+                    elevation: 10,
+                    color: Colors.green[200],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        'Less common symptoms:\n• aches and pains\n• sore throat\n• diarrhoea\n• conjunctivitis\n• headache\n• loss of taste or smell\n• a rash on skin, or discolouration of fingers or toes',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          fontSize: 14,
+                          // fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

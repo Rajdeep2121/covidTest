@@ -234,7 +234,7 @@ class _Page2State extends State<Page2> {
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(90),
               ),
-              color: Colors.lightBlue,
+              // color: Colors.lightBlue,
             ),
             height: MediaQuery.of(context).size.height / 5,
             child: Column(
@@ -261,7 +261,7 @@ class _Page2State extends State<Page2> {
                           size: 30,
                         ),
                         onPressed: () =>
-                            Navigator.push(context, ScaleRoute(page: Page2())),
+                            Navigator.push(context, SizeRoute(page: Page2())),
                       ),
                     )
                   ],
@@ -271,7 +271,7 @@ class _Page2State extends State<Page2> {
                   child: Text(
                     'States of India',
                     style: TextStyle(
-                      fontFamily: 'SFRegular',
+                      fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
@@ -292,9 +292,17 @@ class _Page2State extends State<Page2> {
                 );
               } else {
                 return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(60),
+                      topRight: Radius.circular(60),
+                    ),
+                    color: Colors.green[100],
+                  ),
+                  margin: EdgeInsets.only(left: 10, right: 10),
                   height: MediaQuery.of(context).size.height * 5,
-                  padding:
-                      EdgeInsets.only(top: 25, left: 5, bottom: 3400, right: 5),
+                  padding: EdgeInsets.only(
+                      top: 25, left: 10, bottom: 3400, right: 10),
                   child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {

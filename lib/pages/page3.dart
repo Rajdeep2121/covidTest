@@ -167,12 +167,6 @@ class _Page3State extends State<Page3> {
       body: ListView(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(90),
-              ),
-              color: Colors.amber[300],
-            ),
             height: MediaQuery.of(context).size.height / 5,
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.start,
@@ -198,7 +192,7 @@ class _Page3State extends State<Page3> {
                           size: 30,
                         ),
                         onPressed: () =>
-                            Navigator.push(context, ScaleRoute(page: Page3())),
+                            Navigator.push(context, SizeRoute(page: Page3())),
                       ),
                     )
                   ],
@@ -208,7 +202,7 @@ class _Page3State extends State<Page3> {
                   child: Text(
                     'Daily Cases',
                     style: TextStyle(
-                      fontFamily: 'SFRegular',
+                      fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
@@ -229,6 +223,22 @@ class _Page3State extends State<Page3> {
                 );
               } else {
                 return Container(
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(60),
+                      topLeft: Radius.circular(60),
+                    ),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xff654ea3),
+                        Color(0xffeaafc8),
+                      ],
+                    ),
+                    // color: Colors.amber[300],
+                  ),
                   padding: EdgeInsets.fromLTRB(10, 50, 10, 200),
                   height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
@@ -237,8 +247,10 @@ class _Page3State extends State<Page3> {
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                         child: Card(
+                          color: Colors.amber[100],
                           // color: Color(0xffFFAF7B),
-                          color: Colors.teal[100],
+                          // color: Colors.teal[100],
+                          // color: Color(0xffad5389),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
