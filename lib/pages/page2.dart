@@ -42,64 +42,68 @@ class _Page2State extends State<Page2> {
     return cases;
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return Padding(
-                padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 30,
-                    color: Colors.amberAccent,
-                  ),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  tooltip:
-                      MaterialLocalizations.of(context).openAppDrawerTooltip,
-                ),
-              );
-            },
-          ),
-          backgroundColor: Colors.grey[850],
-          titleSpacing: 2,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Text(
-              'STATES OF INDIA',
-              style: TextStyle(
-                fontFamily: 'ProximaNova',
-                color: Colors.amberAccent,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.8,
-              ),
-            ),
-          ),
-          centerTitle: true,
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.refresh,
-                  size: 30,
-                  color: Colors.amberAccent,
-                ),
-                onPressed: () {
-                  Navigator.push(context, SizeRoute(page: Page2()));
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      key: _scaffoldKey,
+      // appBar: PreferredSize(
+      //   preferredSize: Size.fromHeight(80),
+      //   child: AppBar(
+      //     leading: Builder(
+      //       builder: (BuildContext context) {
+      //         return Padding(
+      //           padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+      //           child: IconButton(
+      //             icon: const Icon(
+      //               Icons.menu,
+      //               size: 30,
+      //               color: Colors.amberAccent,
+      //             ),
+      //             onPressed: () {
+      //               Scaffold.of(context).openDrawer();
+      //             },
+      //             tooltip:
+      //                 MaterialLocalizations.of(context).openAppDrawerTooltip,
+      //           ),
+      //         );
+      //       },
+      //     ),
+      //     backgroundColor: Colors.grey[850],
+      //     titleSpacing: 2,
+      //     title: Padding(
+      //       padding: const EdgeInsets.only(top: 20),
+      //       child: Text(
+      //         'STATES OF INDIA',
+      //         style: TextStyle(
+      //           fontFamily: 'ProximaNova',
+      //           color: Colors.amberAccent,
+      //           fontSize: 30,
+      //           fontWeight: FontWeight.bold,
+      //           letterSpacing: 1.8,
+      //         ),
+      //       ),
+      //     ),
+      //     centerTitle: true,
+      //     actions: <Widget>[
+      //       Padding(
+      //         padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+      //         child: IconButton(
+      //           icon: Icon(
+      //             Icons.refresh,
+      //             size: 30,
+      //             color: Colors.amberAccent,
+      //           ),
+      //           onPressed: () {
+      //             Navigator.push(context, SizeRoute(page: Page2()));
+      //           },
+      //         ),
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -223,109 +227,157 @@ class _Page2State extends State<Page2> {
           ],
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xff3b8d99),
-              Color(0xffaa4b6b),
-            ],
-            // colors: [Color(0xff2c3e50), Color(0xffbdc3c7)],
-          ),
-        ),
-        padding: EdgeInsets.all(10),
-        child: FutureBuilder(
-          future: getCases(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.data == null) {
-              return Container(
-                child: Center(
-                  child: Text('Loading...'),
-                ),
-              );
-            } else {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0),
-                    ),
-                    // color: Colors.lightBlue[100],
-                    // color: Colors.teal[200],
-                    elevation: 10,
-                    child: Center(
-                      child: Container(
-                        margin: const EdgeInsets.all(5.0),
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            SizedBox(height: 10),
-                            Text(
-                              "${snapshot.data[index].state}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 24,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              "Confirmed: ${snapshot.data[index].confirmed} (+${snapshot.data[index].delConfd})",
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 16,
-                                color: Colors.red,
-                              ),
-                            ),
-                            Text(
-                              "Active: ${snapshot.data[index].active}",
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 16,
-                                color: Colors.lightBlue[900],
-                              ),
-                            ),
-                            Text(
-                              "Recovered: ${snapshot.data[index].recovered} (+${snapshot.data[index].delRecd})",
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 16,
-                                color: Colors.teal[500],
-                              ),
-                            ),
-                            Text(
-                              "Deaths: ${snapshot.data[index].deaths} (+${snapshot.data[index].delDeath})",
-                              style: TextStyle(
-                                fontFamily: 'ProximaNova',
-                                fontSize: 16,
-                                color: Colors.grey[600],
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              '${snapshot.data[index].stateNotes}',
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontFamily: 'SFRegular',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                          ],
-                        ),
+      body: ListView(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(90),
+              ),
+              color: Colors.lightBlue,
+            ),
+            height: MediaQuery.of(context).size.height / 5,
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        Icons.menu,
+                        // color: Colors.white,
+                        size: 30,
                       ),
+                      onPressed: () => _scaffoldKey.currentState.openDrawer(),
                     ),
-                  );
-                },
-              );
-            }
-          },
-        ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20, top: 20),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.refresh,
+                          // color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () =>
+                            Navigator.push(context, ScaleRoute(page: Page2())),
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'States of India',
+                    style: TextStyle(
+                      fontFamily: 'SFRegular',
+                      fontWeight: FontWeight.bold,
+                      // letterSpacing: 2,
+                      fontSize: 50,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FutureBuilder(
+            future: getCases(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return Container(
+                  child: Center(
+                    child: Text('Loading...'),
+                  ),
+                );
+              } else {
+                return Container(
+                  height: MediaQuery.of(context).size.height * 5,
+                  padding:
+                      EdgeInsets.only(top: 25, left: 5, bottom: 3400, right: 5),
+                  child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        margin: EdgeInsets.only(top: 20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40.0),
+                        ),
+                        // color: Colors.lightBlue[100],
+                        color: Colors.red[100],
+                        elevation: 10,
+                        child: Center(
+                          child: Container(
+                            margin: const EdgeInsets.all(5.0),
+                            padding: const EdgeInsets.all(20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                SizedBox(height: 10),
+                                Text(
+                                  "${snapshot.data[index].state}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontFamily: 'ProximaNova',
+                                    fontSize: 24,
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  "Confirmed: ${snapshot.data[index].confirmed} (+${snapshot.data[index].delConfd})",
+                                  style: TextStyle(
+                                    fontFamily: 'ProximaNova',
+                                    fontSize: 16,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                Text(
+                                  "Active: ${snapshot.data[index].active}",
+                                  style: TextStyle(
+                                    fontFamily: 'ProximaNova',
+                                    fontSize: 16,
+                                    color: Colors.lightBlue[900],
+                                  ),
+                                ),
+                                Text(
+                                  "Recovered: ${snapshot.data[index].recovered} (+${snapshot.data[index].delRecd})",
+                                  style: TextStyle(
+                                    fontFamily: 'ProximaNova',
+                                    fontSize: 16,
+                                    color: Colors.teal[500],
+                                  ),
+                                ),
+                                Text(
+                                  "Deaths: ${snapshot.data[index].deaths} (+${snapshot.data[index].delDeath})",
+                                  style: TextStyle(
+                                    fontFamily: 'ProximaNova',
+                                    fontSize: 16,
+                                    color: Colors.grey[600],
+                                  ),
+                                ),
+                                SizedBox(height: 20),
+                                Text(
+                                  '${snapshot.data[index].stateNotes}',
+                                  textAlign: TextAlign.justify,
+                                  style: TextStyle(
+                                    fontFamily: 'SFRegular',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                // SizedBox(height: 10),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }
+            },
+          ),
+        ],
       ),
     );
   }

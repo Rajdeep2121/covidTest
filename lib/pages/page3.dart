@@ -167,6 +167,12 @@ class _Page3State extends State<Page3> {
       body: ListView(
         children: <Widget>[
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(90),
+              ),
+              color: Colors.amber[300],
+            ),
             height: MediaQuery.of(context).size.height / 5,
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.start,
@@ -223,82 +229,70 @@ class _Page3State extends State<Page3> {
                 );
               } else {
                 return Container(
-                  decoration: BoxDecoration(
-                    // color: Colors.green,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(100),
-                    ),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color(0xff44A08D),
-                        Color(0xff000000),
-                        // Color(0xff3A1C71),
-                      ],
-                    ),
-                  ),
-                  padding: EdgeInsets.fromLTRB(10, 50, 10, 100),
+                  padding: EdgeInsets.fromLTRB(10, 50, 10, 200),
                   height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Card(
-                        // color: Color(0xffFFAF7B),
-                        color: Colors.teal[100],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        elevation: 10,
-                        child: Center(
-                          child: Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(height: 10),
-                                Center(
-                                  child: Text(
-                                    '${snapshot.data[index].date}',
-                                    style: TextStyle(
-                                      fontFamily: 'ProximaNova',
-                                      fontSize: 30,
+                      return Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: Card(
+                          // color: Color(0xffFFAF7B),
+                          color: Colors.teal[100],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          elevation: 10,
+                          child: Center(
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(height: 10),
+                                  Center(
+                                    child: Text(
+                                      '${snapshot.data[index].date}',
+                                      style: TextStyle(
+                                        fontFamily: 'ProximaNova',
+                                        fontSize: 30,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                SizedBox(height: 10),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    Text(
-                                      "Cases: ${snapshot.data[index].listTotal}",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'ProximaNova',
-                                        color: Colors.red,
+                                  SizedBox(height: 10),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: <Widget>[
+                                      Text(
+                                        "Cases: ${snapshot.data[index].listTotal}",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'ProximaNova',
+                                          color: Colors.red,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      "Recovered: ${snapshot.data[index].listRecd}",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'ProximaNova',
-                                        color: Colors.teal[500],
+                                      Text(
+                                        "Recovered: ${snapshot.data[index].listRecd}",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'ProximaNova',
+                                          color: Colors.teal[500],
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      "Deaths: ${snapshot.data[index].listDeaths}",
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontFamily: 'ProximaNova',
-                                        color: Colors.grey[600],
+                                      Text(
+                                        "Deaths: ${snapshot.data[index].listDeaths}",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'ProximaNova',
+                                          color: Colors.grey[600],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 10),
-                              ],
+                                    ],
+                                  ),
+                                  SizedBox(height: 10),
+                                ],
+                              ),
                             ),
                           ),
                         ),

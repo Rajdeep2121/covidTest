@@ -160,7 +160,7 @@ class _Page5State extends State<Page5> {
                               icon: Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                               onPressed: () =>
                                   _scaffoldKey.currentState.openDrawer(),
@@ -175,6 +175,7 @@ class _Page5State extends State<Page5> {
                         'Prevention',
                         style: TextStyle(
                           fontFamily: 'SFBold',
+                          color: Colors.white,
                           fontSize: 40,
                         ),
                       ),

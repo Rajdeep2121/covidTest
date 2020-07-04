@@ -162,7 +162,7 @@ class _Page4State extends State<Page4> {
                               icon: Icon(
                                 Icons.menu,
                                 size: 30,
-                                color: Colors.black,
+                                color: Colors.white,
                               ),
                               onPressed: () =>
                                   _scaffoldkey.currentState.openDrawer(),
@@ -177,6 +177,7 @@ class _Page4State extends State<Page4> {
                         'Symptoms',
                         style: TextStyle(
                           fontFamily: 'SFBold',
+                          color: Colors.white,
                           fontSize: 40,
                         ),
                       ),
