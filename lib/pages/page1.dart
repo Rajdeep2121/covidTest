@@ -43,8 +43,10 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
   String active = 'Loading...';
   String death = 'Loading...';
   String recovered = 'Loading...';
+  String delTotal = 'Loading...';
+  String delRecd = 'Loading...';
+  String delDeath = 'Loading...';
   void setIndiaCases() async {
-    // print('data loaded');
     IndiaCases instance = IndiaCases();
     await instance.getCases();
 
@@ -53,6 +55,9 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
       active = instance.activeCases;
       recovered = instance.recoveredCases;
       death = instance.deathCases;
+      delTotal = instance.delTotal;
+      delRecd = instance.delRecd;
+      delDeath = instance.delDeath;
     });
   }
 
@@ -233,7 +238,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                   child: Text(
                     'Cases in India',
                     style: TextStyle(
-                      fontFamily: 'SFBold',
+                      fontFamily: 'SFRegular',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
@@ -276,13 +281,26 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                       ),
                     ),
                   ),
-                  Text(
-                    '$total',
-                    style: TextStyle(
-                      fontFamily: 'ProximaNova',
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        '$total',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                      Text(
+                        '(+$delTotal)',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -366,13 +384,26 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                       ),
                     ),
                   ),
-                  Text(
-                    '$recovered',
-                    style: TextStyle(
-                      fontFamily: 'ProximaNova',
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        '$recovered',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                      Text(
+                        '(+$delRecd)',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -411,13 +442,26 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                       ),
                     ),
                   ),
-                  Text(
-                    '$death',
-                    style: TextStyle(
-                      fontFamily: 'ProximaNova',
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        '$death',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 40,
+                        ),
+                      ),
+                      Text(
+                        '(+$delDeath)',
+                        style: TextStyle(
+                          fontFamily: 'ProximaNova',
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

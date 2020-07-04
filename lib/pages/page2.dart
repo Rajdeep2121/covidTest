@@ -23,11 +23,16 @@ class _Page2State extends State<Page2> {
     for (var u in data['statewise']) {
       // print(u['active']);
       Data user = Data(
-          state: u['state'],
-          confirmed: u["confirmed"],
-          active: u['active'],
-          deaths: u['deaths'],
-          recovered: u['recovered']);
+        state: u['state'],
+        confirmed: u["confirmed"],
+        active: u['active'],
+        deaths: u['deaths'],
+        recovered: u['recovered'],
+        delConfd: u['deltaconfirmed'],
+        delRecd: u['deltarecovered'],
+        delDeath: u['deltadeaths'],
+        stateNotes: u['statenotes'],
+      );
       cases.add(user);
       if (u['state'] == 'Total' || u['state'] == 'State Unassigned') {
         cases.removeLast();
@@ -257,11 +262,12 @@ class _Page2State extends State<Page2> {
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             SizedBox(height: 10),
                             Text(
                               "${snapshot.data[index].state}",
+                              textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 fontSize: 24,
@@ -269,9 +275,10 @@ class _Page2State extends State<Page2> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "Confirmed: ${snapshot.data[index].confirmed}",
+                              "Confirmed: ${snapshot.data[index].confirmed} (+${snapshot.data[index].delConfd})",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
+                                fontSize: 16,
                                 color: Colors.red,
                               ),
                             ),
@@ -279,21 +286,33 @@ class _Page2State extends State<Page2> {
                               "Active: ${snapshot.data[index].active}",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
+                                fontSize: 16,
                                 color: Colors.lightBlue[900],
                               ),
                             ),
                             Text(
-                              "Recovered: ${snapshot.data[index].recovered}",
+                              "Recovered: ${snapshot.data[index].recovered} (+${snapshot.data[index].delRecd})",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
+                                fontSize: 16,
                                 color: Colors.teal[500],
                               ),
                             ),
                             Text(
-                              "Deaths: ${snapshot.data[index].deaths}",
+                              "Deaths: ${snapshot.data[index].deaths} (+${snapshot.data[index].delDeath})",
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
+                                fontSize: 16,
                                 color: Colors.grey[600],
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              '${snapshot.data[index].stateNotes}',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontFamily: 'SFRegular',
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             SizedBox(height: 10),
@@ -318,5 +337,19 @@ class Data {
   final String active;
   final String deaths;
   final String recovered;
-  Data({this.state, this.confirmed, this.active, this.deaths, this.recovered});
+  final String delConfd;
+  final String delRecd;
+  final String delDeath;
+  final String stateNotes;
+  Data({
+    this.state,
+    this.confirmed,
+    this.active,
+    this.deaths,
+    this.recovered,
+    this.delConfd,
+    this.delRecd,
+    this.delDeath,
+    this.stateNotes,
+  });
 }

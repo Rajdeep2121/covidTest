@@ -83,6 +83,18 @@ flutter:
     - family: SFBold
       fonts:
         - asset: fonts/SFUIDisplayBold.ttf
+    - family: SFLight
+      fonts:
+        - asset: fonts/SFUIDisplayLight.ttf
+    - family: SFMedium
+      fonts:
+        - asset: fonts/SFUIDisplayMedium.otf
+    - family: SFRegular
+      fonts:
+        - asset: fonts/SFUIDisplayRegular.otf
+    - family: SFThin
+      fonts:
+        - asset: fonts/SFUIDisplayThin.otf
         
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
