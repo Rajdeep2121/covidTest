@@ -248,223 +248,235 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               ],
             ),
           ),
-          Card(
-            margin: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 20),
-            elevation: 70,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            color: Colors.red[500],
-            child: Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
-                      ),
-                      color: Colors.red[700],
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    child: Text(
-                      'Confirmed:',
-                      style: TextStyle(
-                        fontFamily: 'ProximaNova',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
+          Container(
+            height: MediaQuery.of(context).size.height,
+            padding: EdgeInsets.fromLTRB(0, 0, 0, 180),
+            child: ListView(
+              children: <Widget>[
+                Card(
+                  margin:
+                      EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 20),
+                  elevation: 70,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        '$total',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 40,
+                  color: Colors.red[500],
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                            ),
+                            color: Colors.red[700],
+                          ),
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            'Confirmed:',
+                            style: TextStyle(
+                              fontFamily: 'ProximaNova',
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
-                      ),
-                      Text(
-                        '(+$delTotal)',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 20,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              '$total',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 30,
+                              ),
+                            ),
+                            Text(
+                              '(+$delTotal)',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-            elevation: 70,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            color: Colors.blue[700],
-            child: Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
-                      ),
-                      color: Colors.blue[800],
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    child: Text(
-                      'Active:',
-                      style: TextStyle(
-                        fontFamily: 'ProximaNova',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
+                      ],
                     ),
                   ),
-                  Text(
-                    '$active',
-                    style: TextStyle(
-                      fontFamily: 'ProximaNova',
-                      color: Colors.white,
-                      fontSize: 40,
-                    ),
+                ),
+                Card(
+                  margin:
+                      EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+                  elevation: 70,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-            elevation: 70,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            color: Color(0xff0f9d58),
-            child: Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
-                      ),
-                      color: Colors.green[700],
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    child: Text(
-                      'Recovered:',
-                      style: TextStyle(
-                        fontFamily: 'ProximaNova',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        '$recovered',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 40,
+                  color: Colors.blue[700],
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                            ),
+                            color: Colors.blue[800],
+                          ),
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            'Active:',
+                            style: TextStyle(
+                              fontFamily: 'ProximaNova',
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
-                      ),
-                      Text(
-                        '(+$delRecd)',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 20,
+                        Text(
+                          '$active',
+                          style: TextStyle(
+                            fontFamily: 'ProximaNova',
+                            color: Colors.white,
+                            fontSize: 30,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
-            elevation: 70,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            color: Colors.grey[800],
-            child: Container(
-              padding: EdgeInsets.fromLTRB(20, 20, 20, 50),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(10),
-                        topRight: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10),
-                      ),
-                      color: Colors.black,
-                    ),
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.all(10),
-                    child: Text(
-                      'Deaths:',
-                      style: TextStyle(
-                        fontFamily: 'ProximaNova',
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
+                      ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        '$death',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 40,
-                        ),
-                      ),
-                      Text(
-                        '(+$delDeath)',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          color: Colors.white,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
+                ),
+                Card(
+                  margin:
+                      EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+                  elevation: 70,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                ],
-              ),
+                  color: Color(0xff0f9d58),
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                            ),
+                            color: Colors.green[700],
+                          ),
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            'Recovered:',
+                            style: TextStyle(
+                              fontFamily: 'ProximaNova',
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              '$recovered',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 30,
+                              ),
+                            ),
+                            Text(
+                              '(+$delRecd)',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  margin:
+                      EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+                  elevation: 70,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  color: Colors.grey[800],
+                  child: Container(
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              topLeft: Radius.circular(10),
+                            ),
+                            color: Colors.black,
+                          ),
+                          padding: EdgeInsets.all(10),
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            'Deaths:',
+                            style: TextStyle(
+                              fontFamily: 'ProximaNova',
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              '$death',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 30,
+                              ),
+                            ),
+                            Text(
+                              '(+$delDeath)',
+                              style: TextStyle(
+                                fontFamily: 'ProximaNova',
+                                color: Colors.white,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
