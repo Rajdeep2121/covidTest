@@ -22,6 +22,12 @@ flutter install
 
 ### Live Statistics of Cases in India
 
+### SplashScreen
+
+<p align="center">
+<img src='Screenshots/7.jpg' height="500">
+</p>
+
 <p align="center">
 <img src='Screenshots/1.jpg' height="500">
 </p>
@@ -48,4 +54,10 @@ flutter install
 
 <p align="center">
 <img src='Screenshots/5.jpg' height="500">
+</p>
+
+### App Drawer for Navigation through Pages
+
+<p align="center">
+<img src='Screenshots/6.jpg' height="500">
 </p>
