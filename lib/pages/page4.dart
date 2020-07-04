@@ -174,10 +174,10 @@ class _Page4State extends State<Page4> {
                     Padding(
                       padding: EdgeInsets.only(top: 20, left: 20),
                       child: Text(
-                        'SYMPTOMS',
+                        'Symptoms',
                         style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 30,
+                          fontFamily: 'SFBold',
+                          fontSize: 40,
                         ),
                       ),
                     ),

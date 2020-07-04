@@ -1,4 +1,5 @@
 import 'dart:convert';
+import '../main.dart';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import '../pages/page1.dart';
@@ -14,6 +15,7 @@ class Page3 extends StatefulWidget {
 }
 
 class _Page3State extends State<Page3> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   Future<List<Data>> getCases() async {
     var response = await get('https://api.covid19india.org/states_daily.json');
     var data = jsonDecode(response.body);
@@ -46,63 +48,7 @@ class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.grey[600],
-      // backgroundColor: Colors.teal[200],
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(80),
-        child: AppBar(
-          leading: Builder(
-            builder: (BuildContext context) {
-              return Padding(
-                padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 30,
-                    color: Colors.amberAccent,
-                  ),
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  tooltip:
-                      MaterialLocalizations.of(context).openAppDrawerTooltip,
-                ),
-              );
-            },
-          ),
-          backgroundColor: Colors.grey[850],
-          titleSpacing: 2,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Text(
-              'DAILY CASES',
-              style: TextStyle(
-                fontFamily: 'ProximaNova',
-                color: Colors.amberAccent,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.8,
-              ),
-            ),
-          ),
-          centerTitle: true,
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-              child: IconButton(
-                icon: Icon(
-                  Icons.refresh,
-                  size: 30,
-                  color: Colors.amberAccent,
-                ),
-                onPressed: () {
-                  Navigator.push(context, SizeRoute(page: Page3()));
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      key: _scaffoldKey,
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -218,91 +164,152 @@ class _Page3State extends State<Page3> {
           ],
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xff076585), Color(0xfffff)],
-          ),
-        ),
-        padding: EdgeInsets.all(10),
-        child: FutureBuilder(
-          future: getCases(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.data == null) {
-              return Container(
-                child: Center(
-                  child: Text('Loading...'),
-                ),
-              );
-            } else {
-              return ListView.builder(
-                itemCount: snapshot.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    color: Colors.lightBlue[100],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height / 5,
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(
+                        Icons.menu,
+                        // color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () => _scaffoldKey.currentState.openDrawer(),
                     ),
-                    elevation: 10,
-                    child: Center(
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            SizedBox(height: 10),
-                            Center(
-                              child: Text(
-                                '${snapshot.data[index].date}',
-                                style: TextStyle(
-                                  fontFamily: 'ProximaNova',
-                                  fontSize: 30,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20, top: 20),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.refresh,
+                          // color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () =>
+                            Navigator.push(context, ScaleRoute(page: Page3())),
+                      ),
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'Daily Cases',
+                    style: TextStyle(
+                      fontFamily: 'SFRegular',
+                      fontWeight: FontWeight.bold,
+                      // letterSpacing: 2,
+                      fontSize: 50,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FutureBuilder(
+            future: getCases(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return Container(
+                  child: Center(
+                    child: Text('Loading...'),
+                  ),
+                );
+              } else {
+                return Container(
+                  decoration: BoxDecoration(
+                    // color: Colors.green,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(100),
+                    ),
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xff44A08D),
+                        Color(0xff000000),
+                        // Color(0xff3A1C71),
+                      ],
+                    ),
+                  ),
+                  padding: EdgeInsets.fromLTRB(10, 50, 10, 100),
+                  height: MediaQuery.of(context).size.height,
+                  child: ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        // color: Color(0xffFFAF7B),
+                        color: Colors.teal[100],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        elevation: 10,
+                        child: Center(
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  "Cases: ${snapshot.data[index].listTotal}",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'ProximaNova',
-                                    color: Colors.red,
+                                SizedBox(height: 10),
+                                Center(
+                                  child: Text(
+                                    '${snapshot.data[index].date}',
+                                    style: TextStyle(
+                                      fontFamily: 'ProximaNova',
+                                      fontSize: 30,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "Recovered: ${snapshot.data[index].listRecd}",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'ProximaNova',
-                                    color: Colors.teal[500],
-                                  ),
+                                SizedBox(height: 10),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Text(
+                                      "Cases: ${snapshot.data[index].listTotal}",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'ProximaNova',
+                                        color: Colors.red,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Recovered: ${snapshot.data[index].listRecd}",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'ProximaNova',
+                                        color: Colors.teal[500],
+                                      ),
+                                    ),
+                                    Text(
+                                      "Deaths: ${snapshot.data[index].listDeaths}",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontFamily: 'ProximaNova',
+                                        color: Colors.grey[600],
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  "Deaths: ${snapshot.data[index].listDeaths}",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'ProximaNova',
-                                    color: Colors.grey[600],
-                                  ),
-                                ),
+                                SizedBox(height: 10),
                               ],
                             ),
-                            SizedBox(height: 10),
-                          ],
+                          ),
                         ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            }
-          },
-        ),
+                      );
+                    },
+                  ),
+                );
+              }
+            },
+          ),
+        ],
       ),
     );
   }

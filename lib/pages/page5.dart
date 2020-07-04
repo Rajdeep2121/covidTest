@@ -174,8 +174,8 @@ class _Page5State extends State<Page5> {
                       child: Text(
                         'Prevention',
                         style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 30,
+                          fontFamily: 'SFBold',
+                          fontSize: 40,
                         ),
                       ),
                     ),
