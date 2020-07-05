@@ -202,7 +202,7 @@ class _Page3State extends State<Page3> {
                   child: Text(
                     'Daily Cases',
                     style: TextStyle(
-                      fontFamily: 'SFRounded',
+                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,

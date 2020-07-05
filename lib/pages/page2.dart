@@ -215,7 +215,7 @@ class _Page2State extends State<Page2> {
                   child: Text(
                     'States of India',
                     style: TextStyle(
-                      fontFamily: 'SFRounded',
+                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,

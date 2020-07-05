@@ -142,12 +142,16 @@ class _Page4State extends State<Page4> {
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              // color: Colors.red[600],
-              borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(100),
-                // bottomLeft: Radius.circular(20),
-              ),
-            ),
+                // color: Colors.black,
+                // color: Colors.red[600],
+                // gradient: LinearGradient(
+                //     begin: Alignment.bottomLeft,
+                //     end: Alignment.topRight,
+                //     colors: [
+                //       Colors.white,
+                //       Colors.grey[700],
+                //     ]),
+                ),
             child: ListView(
               children: <Widget>[
                 Row(
@@ -162,7 +166,7 @@ class _Page4State extends State<Page4> {
                               icon: Icon(
                                 Icons.menu,
                                 size: 30,
-                                // color: Colors.white,
+                                // color: Colors.grey[600],
                               ),
                               onPressed: () =>
                                   _scaffoldkey.currentState.openDrawer(),
@@ -176,9 +180,9 @@ class _Page4State extends State<Page4> {
                       child: Text(
                         'Symptoms',
                         style: TextStyle(
-                          fontFamily: 'SFRounded',
+                          fontFamily: 'SFProDisplay',
                           fontWeight: FontWeight.bold,
-                          // color: Colors.white,
+                          // color: Colors.grey[600],
                           fontSize: 40,
                         ),
                       ),
@@ -195,10 +199,14 @@ class _Page4State extends State<Page4> {
           ),
           Container(
             margin: EdgeInsets.only(left: 10, right: 10),
+            padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
             decoration: BoxDecoration(
+              // color: Colors.black,
               color: Colors.amber[100],
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(60),
+                bottomLeft: Radius.circular(60),
+                bottomRight: Radius.circular(60),
                 topRight: Radius.circular(60),
               ),
             ),
@@ -206,7 +214,7 @@ class _Page4State extends State<Page4> {
             child: ListView(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.all(10),
+                  margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
                   child: Card(
                     elevation: 10,
                     color: Colors.lightBlue[200],
@@ -228,7 +236,7 @@ class _Page4State extends State<Page4> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(10),
+                  margin: EdgeInsets.all(0),
                   child: Card(
                     elevation: 10,
                     color: Colors.red[100],

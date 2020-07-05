@@ -98,6 +98,9 @@ flutter:
     - family: SFRound
       fonts:
         - asset: fonts/SFRounded.ttf
+    - family: SFProDisplay
+      fonts:
+        - asset: fonts/SFProDisplay.ttf
         
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

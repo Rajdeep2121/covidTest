@@ -238,7 +238,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                   child: Text(
                     'Cases in India',
                     style: TextStyle(
-                      fontFamily: 'SFRounded',
+                      fontFamily: 'SFProDisplay',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,

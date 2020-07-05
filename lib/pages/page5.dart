@@ -174,7 +174,7 @@ class _Page5State extends State<Page5> {
                       child: Text(
                         'Prevention',
                         style: TextStyle(
-                          fontFamily: 'SFRounded',
+                          fontFamily: 'SFProDisplay',
                           // color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
@@ -201,6 +201,8 @@ class _Page5State extends State<Page5> {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(60),
                 topRight: Radius.circular(60),
+                bottomRight: Radius.circular(60),
+                bottomLeft: Radius.circular(60),
               ),
             ),
             height: MediaQuery.of(context).size.height - 170,
