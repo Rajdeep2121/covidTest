@@ -48,62 +48,6 @@ class _Page2State extends State<Page2> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      // appBar: PreferredSize(
-      //   preferredSize: Size.fromHeight(80),
-      //   child: AppBar(
-      //     leading: Builder(
-      //       builder: (BuildContext context) {
-      //         return Padding(
-      //           padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-      //           child: IconButton(
-      //             icon: const Icon(
-      //               Icons.menu,
-      //               size: 30,
-      //               color: Colors.amberAccent,
-      //             ),
-      //             onPressed: () {
-      //               Scaffold.of(context).openDrawer();
-      //             },
-      //             tooltip:
-      //                 MaterialLocalizations.of(context).openAppDrawerTooltip,
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //     backgroundColor: Colors.grey[850],
-      //     titleSpacing: 2,
-      //     title: Padding(
-      //       padding: const EdgeInsets.only(top: 20),
-      //       child: Text(
-      //         'STATES OF INDIA',
-      //         style: TextStyle(
-      //           fontFamily: 'ProximaNova',
-      //           color: Colors.amberAccent,
-      //           fontSize: 30,
-      //           fontWeight: FontWeight.bold,
-      //           letterSpacing: 1.8,
-      //         ),
-      //       ),
-      //     ),
-      //     centerTitle: true,
-      //     actions: <Widget>[
-      //       Padding(
-      //         padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-      //         child: IconButton(
-      //           icon: Icon(
-      //             Icons.refresh,
-      //             size: 30,
-      //             color: Colors.amberAccent,
-      //           ),
-      //           onPressed: () {
-      //             Navigator.push(context, SizeRoute(page: Page2()));
-      //           },
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -300,9 +244,11 @@ class _Page2State extends State<Page2> {
                     color: Colors.green[100],
                   ),
                   margin: EdgeInsets.only(left: 10, right: 10),
-                  height: MediaQuery.of(context).size.height * 5,
-                  padding: EdgeInsets.only(
-                      top: 25, left: 10, bottom: 3400, right: 10),
+                  // height: MediaQuery.of(context).size.height * 5,
+                  // padding: EdgeInsets.only(
+                  //     top: 25, left: 10, bottom: 3400, right: 10),
+                  padding: EdgeInsets.fromLTRB(10, 50, 10, 200),
+                  height: MediaQuery.of(context).size.height,
                   child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {

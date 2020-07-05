@@ -23,7 +23,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
     switch (state) {
       case AppLifecycleState.resumed:
         // setIndiaCases();
-        Navigator.push(context, SizeRoute(page: SplashScreen()));
+        Navigator.push(context, SizeRoute(page: Page1()));
         print("app in resumed");
         break;
       case AppLifecycleState.inactive:
@@ -299,7 +299,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '(+$delTotal)',
+                              '($delTotal)',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -404,7 +404,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '(+$delRecd)',
+                              '($delRecd)',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -463,7 +463,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '(+$delDeath)',
+                              '($delDeath)',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,

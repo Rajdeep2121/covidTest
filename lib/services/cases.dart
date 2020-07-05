@@ -35,14 +35,14 @@ class IndiaCases {
     String delRecdim = data['statewise'][0]['deltarecovered'].toString();
     String delDeathim = data['statewise'][0]['deltadeaths'].toString();
     // print(totalCasesim[0]);
-    if (delTotalim[0] == '-') {
-      delTotalim = delTotalim.substring(1);
+    if (delTotalim[0] != '-') {
+      delTotalim = "+" + delTotalim.substring(0);
     }
-    if (delRecdim[0] == '-') {
-      delRecdim = delRecdim.substring(1);
+    if (delRecdim[0] != '-') {
+      delRecdim = "+" + delRecdim.substring(0);
     }
-    if (delDeathim[0] == '-') {
-      delDeathim = delDeathim.substring(1);
+    if (delDeathim[0] != '-') {
+      delDeathim = "+" + delDeathim.substring(0);
     }
 
     totalCases = totalCasesim;
