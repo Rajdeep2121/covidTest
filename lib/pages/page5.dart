@@ -174,7 +174,7 @@ class _Page5State extends State<Page5> {
                       child: Text(
                         'Prevention',
                         style: TextStyle(
-                          fontFamily: 'SFProDisplay',
+                          fontFamily: 'SFRounded',
                           // color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 40,

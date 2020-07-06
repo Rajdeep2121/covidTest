@@ -72,6 +72,19 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  _showSnackBar() {
+    final snackbar = SnackBar(
+      content: Text(
+        'Refreshed',
+        style: TextStyle(
+          fontFamily: 'ProximaNova',
+          fontSize: 20,
+        ),
+      ),
+    );
+    _scaffoldKey.currentState.showSnackBar(snackbar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -227,8 +240,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                           // color: Colors.white,
                           size: 30,
                         ),
-                        onPressed: () => Navigator.push(
-                            context, SizeRoute(page: SplashScreen())),
+                        onPressed: () => _showSnackBar(),
                       ),
                     )
                   ],
@@ -238,7 +250,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                   child: Text(
                     'Cases in India',
                     style: TextStyle(
-                      fontFamily: 'SFProDisplay',
+                      fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,

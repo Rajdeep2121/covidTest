@@ -16,6 +16,19 @@ class Page3 extends StatefulWidget {
 
 class _Page3State extends State<Page3> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  _showSnackBar() {
+    final snackbar = SnackBar(
+      content: Text(
+        'Refreshed',
+        style: TextStyle(
+          fontFamily: 'ProximaNova',
+          fontSize: 20,
+        ),
+      ),
+    );
+    _scaffoldKey.currentState.showSnackBar(snackbar);
+  }
+
   Future<List<Data>> getCases() async {
     var response = await get('https://api.covid19india.org/states_daily.json');
     var data = jsonDecode(response.body);
@@ -191,8 +204,7 @@ class _Page3State extends State<Page3> {
                           // color: Colors.white,
                           size: 30,
                         ),
-                        onPressed: () =>
-                            Navigator.push(context, SizeRoute(page: Page3())),
+                        onPressed: () => _showSnackBar(),
                       ),
                     )
                   ],
@@ -202,7 +214,7 @@ class _Page3State extends State<Page3> {
                   child: Text(
                     'Daily Cases',
                     style: TextStyle(
-                      fontFamily: 'SFProDisplay',
+                      fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,

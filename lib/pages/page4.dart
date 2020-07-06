@@ -180,7 +180,7 @@ class _Page4State extends State<Page4> {
                       child: Text(
                         'Symptoms',
                         style: TextStyle(
-                          fontFamily: 'SFProDisplay',
+                          fontFamily: 'SFRounded',
                           fontWeight: FontWeight.bold,
                           // color: Colors.grey[600],
                           fontSize: 40,

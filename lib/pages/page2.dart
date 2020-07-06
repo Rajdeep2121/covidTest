@@ -43,6 +43,18 @@ class _Page2State extends State<Page2> {
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  _showSnackBar() {
+    final snackbar = SnackBar(
+      content: Text(
+        'Refreshed',
+        style: TextStyle(
+          fontFamily: 'ProximaNova',
+          fontSize: 20,
+        ),
+      ),
+    );
+    _scaffoldKey.currentState.showSnackBar(snackbar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -204,8 +216,7 @@ class _Page2State extends State<Page2> {
                           // color: Colors.white,
                           size: 30,
                         ),
-                        onPressed: () =>
-                            Navigator.push(context, SizeRoute(page: Page2())),
+                        onPressed: () => _showSnackBar(),
                       ),
                     )
                   ],
@@ -215,7 +226,7 @@ class _Page2State extends State<Page2> {
                   child: Text(
                     'States of India',
                     style: TextStyle(
-                      fontFamily: 'SFProDisplay',
+                      fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
