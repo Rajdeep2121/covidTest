@@ -91,7 +91,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
       key: _scaffoldKey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Colors.grey[700],
+          canvasColor: Colors.grey[900],
         ),
         child: Drawer(
           child: ListView(
@@ -116,16 +116,18 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               // SizedBox(height: 60),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.red[100],
+                  color: Colors.green[100],
                 ),
                 child: ListTile(
                   leading: Image.asset(
                     'assets/india.png',
+                    color: Colors.green[800],
                     height: 38,
                   ),
                   title: Text(
                     'Home',
                     style: TextStyle(
+                      color: Colors.green[800],
                       fontFamily: 'ProximaNova',
                       letterSpacing: -0.5,
                       fontSize: 18,
@@ -141,11 +143,13 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
               ListTile(
                 leading: Icon(
                   Icons.location_on,
+                  color: Colors.white,
                   size: 35,
                 ),
                 title: Text(
                   'States',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
@@ -158,13 +162,15 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                 },
               ),
               ListTile(
-                leading: Image.asset(
-                  'assets/graph.jpg',
-                  height: 32,
+                leading: Icon(
+                  Icons.show_chart,
+                  size: 35,
+                  color: Colors.white,
                 ),
                 title: Text(
                   'Daily Cases',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
@@ -184,6 +190,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                 title: Text(
                   'Symptoms',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
@@ -203,6 +210,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                 title: Text(
                   'Prevention',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,

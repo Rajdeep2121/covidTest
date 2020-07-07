@@ -62,7 +62,7 @@ class _Page2State extends State<Page2> {
       key: _scaffoldKey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Colors.grey[700],
+          canvasColor: Colors.grey[900],
         ),
         child: Drawer(
           child: ListView(
@@ -88,11 +88,13 @@ class _Page2State extends State<Page2> {
               ListTile(
                 leading: Image.asset(
                   'assets/india.png',
+                  color: Colors.white,
                   height: 38,
                 ),
                 title: Text(
                   'Home',
                   style: TextStyle(
+                    color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
                     fontSize: 18,
@@ -104,16 +106,18 @@ class _Page2State extends State<Page2> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.red[100],
+                  color: Colors.green[100],
                 ),
                 child: ListTile(
                   leading: Icon(
                     Icons.location_on,
                     size: 35,
+                    color: Colors.green[800],
                   ),
                   title: Text(
                     'States',
                     style: TextStyle(
+                      color: Colors.green[800],
                       // color: Colors.white,
                       fontFamily: 'ProximaNova',
                       letterSpacing: -0.5,
@@ -128,13 +132,15 @@ class _Page2State extends State<Page2> {
                 ),
               ),
               ListTile(
-                leading: Image.asset(
-                  'assets/graph.jpg',
-                  height: 32,
+                leading: Icon(
+                  Icons.show_chart,
+                  size: 35,
+                  color: Colors.white,
                 ),
                 title: Text(
                   'Daily Cases',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
@@ -154,6 +160,7 @@ class _Page2State extends State<Page2> {
                 title: Text(
                   'Symptoms',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,
@@ -173,6 +180,7 @@ class _Page2State extends State<Page2> {
                 title: Text(
                   'Prevention',
                   style: TextStyle(
+                    color: Colors.white,
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
                     letterSpacing: -0.5,

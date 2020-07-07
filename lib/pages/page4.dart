@@ -19,7 +19,7 @@ class _Page4State extends State<Page4> {
       key: _scaffoldkey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Colors.grey[700],
+          canvasColor: Colors.grey[900],
         ),
         child: Drawer(
           child: ListView(
@@ -45,11 +45,13 @@ class _Page4State extends State<Page4> {
               ListTile(
                 leading: Image.asset(
                   'assets/india.png',
+                  color: Colors.white,
                   height: 38,
                 ),
                 title: Text(
                   'Home',
                   style: TextStyle(
+                    color: Colors.white,
                     fontFamily: 'ProximaNova',
                     fontSize: 18,
                     letterSpacing: -0.5,
@@ -62,11 +64,13 @@ class _Page4State extends State<Page4> {
               ListTile(
                 leading: Icon(
                   Icons.location_on,
+                  color: Colors.white,
                   size: 35,
                 ),
                 title: Text(
                   'States',
                   style: TextStyle(
+                    color: Colors.white,
                     fontFamily: 'ProximaNova',
                     fontSize: 18,
                     letterSpacing: -0.5,
@@ -77,13 +81,15 @@ class _Page4State extends State<Page4> {
                 },
               ),
               ListTile(
-                leading: Image.asset(
-                  'assets/graph.jpg',
-                  height: 32,
+                leading: Icon(
+                  Icons.show_chart,
+                  size: 35,
+                  color: Colors.white,
                 ),
                 title: Text(
                   'Daily Cases',
                   style: TextStyle(
+                    color: Colors.white,
                     fontFamily: 'ProximaNova',
                     fontSize: 18,
                     letterSpacing: -0.5,
@@ -96,7 +102,7 @@ class _Page4State extends State<Page4> {
               ),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.red[100],
+                  color: Colors.green[100],
                 ),
                 child: ListTile(
                   leading: Image.asset(
@@ -106,6 +112,7 @@ class _Page4State extends State<Page4> {
                   title: Text(
                     'Symptoms',
                     style: TextStyle(
+                      color: Colors.green[800],
                       fontFamily: 'ProximaNova',
                       fontSize: 18,
                       letterSpacing: -0.5,
@@ -125,6 +132,7 @@ class _Page4State extends State<Page4> {
                 title: Text(
                   'Prevention',
                   style: TextStyle(
+                    color: Colors.white,
                     fontFamily: 'ProximaNova',
                     fontSize: 18,
                     letterSpacing: -0.5,
