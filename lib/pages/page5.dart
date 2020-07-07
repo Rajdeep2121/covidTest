@@ -16,6 +16,7 @@ class _Page5State extends State<Page5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       key: _scaffoldKey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -172,6 +173,7 @@ class _Page5State extends State<Page5> {
                             child: IconButton(
                               icon: Icon(
                                 Icons.menu,
+                                color: Colors.white,
                                 size: 30,
                                 // color: Colors.white,
                               ),
@@ -188,7 +190,7 @@ class _Page5State extends State<Page5> {
                         'Prevention',
                         style: TextStyle(
                           fontFamily: 'SFRounded',
-                          // color: Colors.white,
+                          color: Colors.grey[400],
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
                         ),
@@ -209,35 +211,25 @@ class _Page5State extends State<Page5> {
           ),
           Container(
             margin: EdgeInsets.only(left: 10, right: 10),
-            decoration: BoxDecoration(
-              color: Colors.red[100],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(60),
-                topRight: Radius.circular(60),
-                bottomRight: Radius.circular(60),
-                bottomLeft: Radius.circular(60),
-              ),
-            ),
             height: MediaQuery.of(context).size.height - 170,
             child: ListView(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: Card(
-                    color: Colors.lightBlue[200],
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(20),
-                      child: Text(
-                        'Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 20,
-                        ),
+                Card(
+                  // color: Colors.lightBlue[200],
+                  color: Color(0xffff453a),
+                  elevation: 10,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Text(
+                      'Protect yourself and others around you by knowing the facts and taking appropriate precautions. Follow advice provided by your local health authority.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'ProximaNova',
+                        fontSize: 20,
                       ),
                     ),
                   ),
@@ -246,7 +238,8 @@ class _Page5State extends State<Page5> {
                   // margin: EdgeInsets.all(10),
                   margin: EdgeInsets.fromLTRB(10, 30, 10, 10),
                   child: Card(
-                    color: Colors.green[200],
+                    // color: Colors.green[200],
+                    color: Color(0xff5e5ce6),
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -259,6 +252,7 @@ class _Page5State extends State<Page5> {
                         style: TextStyle(
                           fontFamily: 'ProximaNova',
                           fontSize: 14,
+                          color: Colors.white,
                         ),
                       ),
                     ),

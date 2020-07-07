@@ -16,6 +16,7 @@ class _Page4State extends State<Page4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       key: _scaffoldkey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -154,17 +155,6 @@ class _Page4State extends State<Page4> {
           Container(
             height: MediaQuery.of(context).size.height / 5,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                // color: Colors.black,
-                // color: Colors.red[600],
-                // gradient: LinearGradient(
-                //     begin: Alignment.bottomLeft,
-                //     end: Alignment.topRight,
-                //     colors: [
-                //       Colors.white,
-                //       Colors.grey[700],
-                //     ]),
-                ),
             child: ListView(
               children: <Widget>[
                 Row(
@@ -178,6 +168,7 @@ class _Page4State extends State<Page4> {
                             child: IconButton(
                               icon: Icon(
                                 Icons.menu,
+                                color: Colors.white,
                                 size: 30,
                                 // color: Colors.grey[600],
                               ),
@@ -195,7 +186,7 @@ class _Page4State extends State<Page4> {
                         style: TextStyle(
                           fontFamily: 'SFRounded',
                           fontWeight: FontWeight.bold,
-                          // color: Colors.grey[600],
+                          color: Colors.grey[400],
                           fontSize: 40,
                         ),
                       ),
@@ -213,37 +204,26 @@ class _Page4State extends State<Page4> {
           Container(
             margin: EdgeInsets.only(left: 10, right: 10),
             padding: EdgeInsets.only(bottom: 10, left: 5, right: 5),
-            decoration: BoxDecoration(
-              // color: Colors.black,
-              color: Colors.amber[100],
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(60),
-                bottomLeft: Radius.circular(60),
-                bottomRight: Radius.circular(60),
-                topRight: Radius.circular(60),
-              ),
-            ),
             height: MediaQuery.of(context).size.height - 170,
             child: ListView(
               children: <Widget>[
-                Container(
-                  margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
-                  child: Card(
-                    elevation: 10,
-                    color: Colors.lightBlue[200],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Text(
-                        'COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'ProximaNova',
-                          fontSize: 20,
-                          // fontStyle: FontStyle.italic,
-                        ),
+                Card(
+                  elevation: 10,
+                  // color: Colors.lightBlue[200],
+                  color: Color(0xff5856d6),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      'COVID-19 affects different people in different ways. Most infected people will develop mild to moderate illness and recover without hospitalization.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'ProximaNova',
+                        fontSize: 20,
+                        // fontStyle: FontStyle.italic,
                       ),
                     ),
                   ),
@@ -252,7 +232,9 @@ class _Page4State extends State<Page4> {
                   margin: EdgeInsets.all(0),
                   child: Card(
                     elevation: 10,
-                    color: Colors.red[100],
+                    // color: Colors.red[100],
+                    // color: Color(0xff34c759),
+                    color: Color(0xffff3b30),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),
@@ -263,6 +245,7 @@ class _Page4State extends State<Page4> {
                         style: TextStyle(
                           fontFamily: 'ProximaNova',
                           fontSize: 16,
+                          color: Colors.white,
                           // fontStyle: FontStyle.italic,
                         ),
                       ),
@@ -273,7 +256,8 @@ class _Page4State extends State<Page4> {
                   margin: EdgeInsets.all(10),
                   child: Card(
                     elevation: 10,
-                    color: Colors.green[200],
+                    // color: Color(0xff545458),
+                    color: Color(0xff1a846b),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20.0),
                     ),
@@ -283,6 +267,7 @@ class _Page4State extends State<Page4> {
                         'Less common symptoms:\n• aches and pains\n• sore throat\n• diarrhoea\n• conjunctivitis\n• headache\n• loss of taste or smell\n• a rash on skin, or discolouration of fingers or toes',
                         style: TextStyle(
                           fontFamily: 'ProximaNova',
+                          color: Colors.white,
                           fontSize: 14,
                           // fontStyle: FontStyle.italic,
                         ),

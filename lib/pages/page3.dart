@@ -61,6 +61,7 @@ class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       key: _scaffoldKey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -204,7 +205,7 @@ class _Page3State extends State<Page3> {
                     IconButton(
                       icon: Icon(
                         Icons.menu,
-                        // color: Colors.white,
+                        color: Colors.white,
                         size: 30,
                       ),
                       onPressed: () => _scaffoldKey.currentState.openDrawer(),
@@ -214,7 +215,7 @@ class _Page3State extends State<Page3> {
                       child: IconButton(
                         icon: Icon(
                           Icons.refresh,
-                          // color: Colors.white,
+                          color: Colors.white,
                           size: 30,
                         ),
                         onPressed: () => _showSnackBar(),
@@ -228,6 +229,7 @@ class _Page3State extends State<Page3> {
                     'Daily Cases',
                     style: TextStyle(
                       fontFamily: 'SFRounded',
+                      color: Colors.grey[400],
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
@@ -255,11 +257,11 @@ class _Page3State extends State<Page3> {
                       topLeft: Radius.circular(60),
                     ),
                     gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xff654ea3),
-                        Color(0xffeaafc8),
+                        Color(0xff000000),
+                        Color(0xff04619F),
                       ],
                     ),
                     // color: Colors.amber[300],
@@ -272,10 +274,7 @@ class _Page3State extends State<Page3> {
                       return Padding(
                         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                         child: Card(
-                          color: Colors.amber[100],
-                          // color: Color(0xffFFAF7B),
-                          // color: Colors.teal[100],
-                          // color: Color(0xffad5389),
+                          color: Color(0xff373739),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
@@ -292,6 +291,7 @@ class _Page3State extends State<Page3> {
                                       '${snapshot.data[index].date}',
                                       style: TextStyle(
                                         fontFamily: 'ProximaNova',
+                                        color: Color(0xffffd60a),
                                         fontSize: 30,
                                       ),
                                     ),
@@ -306,7 +306,7 @@ class _Page3State extends State<Page3> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
-                                          color: Colors.red,
+                                          color: Color(0xffff453a),
                                         ),
                                       ),
                                       Text(
@@ -314,7 +314,7 @@ class _Page3State extends State<Page3> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
-                                          color: Colors.teal[500],
+                                          color: Color(0xff32d74b),
                                         ),
                                       ),
                                       Text(
@@ -322,7 +322,8 @@ class _Page3State extends State<Page3> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
-                                          color: Colors.grey[600],
+                                          // color: Colors.grey[600],
+                                          color: Colors.grey[400],
                                         ),
                                       ),
                                     ],

@@ -89,6 +89,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
+      backgroundColor: Colors.black,
       drawer: Theme(
         data: Theme.of(context).copyWith(
           canvasColor: Colors.grey[900],
@@ -240,7 +241,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                     IconButton(
                       icon: Icon(
                         Icons.menu,
-                        // color: Colors.white,
+                        color: Colors.white,
                         size: 30,
                       ),
                       onPressed: () => _scaffoldKey.currentState.openDrawer(),
@@ -250,7 +251,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                       child: IconButton(
                         icon: Icon(
                           Icons.refresh,
-                          // color: Colors.white,
+                          color: Colors.white,
                           size: 30,
                         ),
                         onPressed: () => _showSnackBar(),
@@ -266,6 +267,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                       fontFamily: 'SFRounded',
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
+                      color: Colors.grey[400],
                       fontSize: 50,
                     ),
                   ),

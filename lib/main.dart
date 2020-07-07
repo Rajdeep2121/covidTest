@@ -42,6 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -51,8 +52,8 @@ class _SplashScreenState extends State<SplashScreen> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 10,
+                    color: Color(0xff007aff),
+                    blurRadius: 50,
                   ),
                 ],
               ),
@@ -65,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Text(
               'COVID-19',
               style: TextStyle(
-                color: Color(0xff111111),
+                color: Colors.grey[200],
                 fontFamily: 'ProximaNova',
                 fontSize: MediaQuery.of(context).size.height / 12,
                 fontWeight: FontWeight.w700,
@@ -76,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Text(
                 'Live Tracker',
                 style: TextStyle(
-                  color: Color(0xff111111),
+                  color: Colors.grey[600],
                   fontFamily: 'SFRounded',
                   fontSize: MediaQuery.of(context).size.height / 15,
                   fontWeight: FontWeight.w700,
@@ -84,9 +85,11 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height / 25),
-            SpinKitRotatingCircle(
+            SpinKitWanderingCubes(
+              // controller: AnimationController(
+              // vsync: this, duration: const Duration(milliseconds: 500)),
               size: MediaQuery.of(context).size.height / 10,
-              color: Color(0xfffd415e),
+              color: Color(0xffff453a),
             ),
           ],
         ),

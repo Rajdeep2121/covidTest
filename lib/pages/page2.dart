@@ -6,7 +6,6 @@ import '../pages/page3.dart';
 import '../pages/page4.dart';
 import '../pages/page5.dart';
 import '../services/scaleroute.dart';
-import '../services/sizeroute.dart';
 
 class Page2 extends StatefulWidget {
   @override
@@ -59,6 +58,7 @@ class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       key: _scaffoldKey,
       drawer: Theme(
         data: Theme.of(context).copyWith(
@@ -216,7 +216,7 @@ class _Page2State extends State<Page2> {
                     IconButton(
                       icon: Icon(
                         Icons.menu,
-                        // color: Colors.white,
+                        color: Colors.white,
                         size: 30,
                       ),
                       onPressed: () => _scaffoldKey.currentState.openDrawer(),
@@ -226,7 +226,7 @@ class _Page2State extends State<Page2> {
                       child: IconButton(
                         icon: Icon(
                           Icons.refresh,
-                          // color: Colors.white,
+                          color: Colors.white,
                           size: 30,
                         ),
                         onPressed: () => _showSnackBar(),
@@ -240,6 +240,7 @@ class _Page2State extends State<Page2> {
                     'States of India',
                     style: TextStyle(
                       fontFamily: 'SFRounded',
+                      color: Colors.grey[400],
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 2,
                       fontSize: 50,
@@ -265,7 +266,15 @@ class _Page2State extends State<Page2> {
                       topLeft: Radius.circular(60),
                       topRight: Radius.circular(60),
                     ),
-                    color: Colors.green[100],
+                    // color: Colors.green[100],
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xff000000),
+                          Color(0xffA55C1B),
+                          // Color(0xff63D471),
+                        ]),
                   ),
                   margin: EdgeInsets.only(left: 10, right: 10),
                   // height: MediaQuery.of(context).size.height * 5,
@@ -276,18 +285,16 @@ class _Page2State extends State<Page2> {
                   child: ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Card(
+                      return Container(
                         margin: EdgeInsets.only(top: 20),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(40)),
+                          color: Color(0xff373739),
                         ),
-                        // color: Colors.lightBlue[100],
-                        color: Colors.red[100],
-                        elevation: 10,
                         child: Center(
                           child: Container(
-                            margin: const EdgeInsets.all(5.0),
-                            padding: const EdgeInsets.all(20.0),
+                            margin: EdgeInsets.all(5.0),
+                            padding: EdgeInsets.all(20.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -299,6 +306,7 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 24,
+                                    color: Colors.white,
                                   ),
                                 ),
                                 SizedBox(height: 10),
@@ -307,7 +315,7 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
-                                    color: Colors.red,
+                                    color: Color(0xfffd415e),
                                   ),
                                 ),
                                 Text(
@@ -315,7 +323,7 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
-                                    color: Colors.lightBlue[900],
+                                    color: Color(0xff0a84ff),
                                   ),
                                 ),
                                 Text(
@@ -323,7 +331,8 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
-                                    color: Colors.teal[500],
+                                    // color: Colors.teal[500],
+                                    color: Color(0xff34c759),
                                   ),
                                 ),
                                 Text(
@@ -331,7 +340,7 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
-                                    color: Colors.grey[600],
+                                    color: Colors.grey[400],
                                   ),
                                 ),
                                 SizedBox(height: 20),
@@ -341,6 +350,7 @@ class _Page2State extends State<Page2> {
                                   style: TextStyle(
                                     fontFamily: 'SFRegular',
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.amber,
                                   ),
                                 ),
                                 // SizedBox(height: 10),
