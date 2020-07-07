@@ -5,6 +5,7 @@ import 'pages/page3.dart';
 import 'pages/page4.dart';
 import 'pages/page5.dart';
 import 'dart:async';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/services.dart';
 
 void main() {
@@ -41,77 +42,54 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.redAccent,
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      // SizedBox(height: 200),
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 50,
-                        child: Image.asset(
-                          'assets/circle-cropped.png',
-                          scale: 1.0,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      ),
-                      // SizedBox(height: 100),
-                      Text(
-                        'COVID-19',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontFamily: 'ProximaNova',
-                        ),
-                      ),
-                      Text(
-                        'LIVE TRACKER',
-                        style: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: 'ProximaNova',
-                        ),
-                      )
-                    ],
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 10,
                   ),
+                ],
+              ),
+              child: Image.asset(
+                'assets/icons/icon.png',
+                height: MediaQuery.of(context).size.height / 10,
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height / 25),
+            Text(
+              'COVID-19',
+              style: TextStyle(
+                color: Color(0xff111111),
+                fontFamily: 'ProximaNova',
+                fontSize: MediaQuery.of(context).size.height / 12,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Text(
+                'Live Tracker',
+                style: TextStyle(
+                  color: Color(0xff111111),
+                  fontFamily: 'SFRounded',
+                  fontSize: MediaQuery.of(context).size.height / 15,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
-              Expanded(
-                flex: 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CircularProgressIndicator(
-                      strokeWidth: 7,
-                      valueColor: AlwaysStoppedAnimation(Colors.blue),
-                      backgroundColor: Colors.greenAccent,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height / 25),
+            SpinKitRotatingCircle(
+              size: MediaQuery.of(context).size.height / 10,
+              color: Color(0xfffd415e),
+            ),
+          ],
+        ),
       ),
     );
   }

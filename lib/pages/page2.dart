@@ -60,55 +60,80 @@ class _Page2State extends State<Page2> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
-              accountName: Text(
-                'COVID 19 Tracker',
-                style: TextStyle(
-                  color: Colors.amber,
-                  fontFamily: 'ProximaNova',
-                  fontSize: 25,
+      drawer: Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.grey[700],
+        ),
+        child: Drawer(
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.black,
                 ),
-              ),
-              currentAccountPicture: CircleAvatar(
-                child: Image.asset('assets/circle-cropped.png'),
-              ),
-              accountEmail: Text(''),
-            ),
-            // SizedBox(height: 60),
-            ListTile(
-              leading: Image.asset(
-                'assets/india.png',
-                height: 38,
-              ),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                  fontFamily: 'ProximaNova',
-                  letterSpacing: -0.5,
-                  fontSize: 18,
+                accountName: Text(
+                  'COVID 19 Tracker',
+                  style: TextStyle(
+                    color: Colors.amber,
+                    fontFamily: 'ProximaNova',
+                    fontSize: 25,
+                  ),
                 ),
+                currentAccountPicture: CircleAvatar(
+                  child: Image.asset('assets/circle-cropped.png'),
+                ),
+                accountEmail: Text(''),
               ),
-              onTap: () {
-                Navigator.push(context, ScaleRoute(page: Page1()));
-              },
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.red[100],
-              ),
-              child: ListTile(
-                leading: Icon(
-                  Icons.location_on,
-                  size: 35,
+              // SizedBox(height: 60),
+              ListTile(
+                leading: Image.asset(
+                  'assets/india.png',
+                  height: 38,
                 ),
                 title: Text(
-                  'States',
+                  'Home',
+                  style: TextStyle(
+                    fontFamily: 'ProximaNova',
+                    letterSpacing: -0.5,
+                    fontSize: 18,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(context, ScaleRoute(page: Page1()));
+                },
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red[100],
+                ),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.location_on,
+                    size: 35,
+                  ),
+                  title: Text(
+                    'States',
+                    style: TextStyle(
+                      // color: Colors.white,
+                      fontFamily: 'ProximaNova',
+                      letterSpacing: -0.5,
+                      fontSize: 18,
+                    ),
+                  ),
+                  selected: true,
+                  onTap: () {
+                    // Navigator.pushNamed(context, '/Page2');
+                    Navigator.push(context, ScaleRoute(page: Page2()));
+                  },
+                ),
+              ),
+              ListTile(
+                leading: Image.asset(
+                  'assets/graph.jpg',
+                  height: 32,
+                ),
+                title: Text(
+                  'Daily Cases',
                   style: TextStyle(
                     // color: Colors.white,
                     fontFamily: 'ProximaNova',
@@ -116,71 +141,51 @@ class _Page2State extends State<Page2> {
                     fontSize: 18,
                   ),
                 ),
-                selected: true,
                 onTap: () {
-                  // Navigator.pushNamed(context, '/Page2');
-                  Navigator.push(context, ScaleRoute(page: Page2()));
+                  // Navigator.pushNamed(context, '/Page3');
+                  Navigator.push(context, ScaleRoute(page: Page3()));
                 },
               ),
-            ),
-            ListTile(
-              leading: Image.asset(
-                'assets/graph.jpg',
-                height: 32,
-              ),
-              title: Text(
-                'Daily Cases',
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontFamily: 'ProximaNova',
-                  letterSpacing: -0.5,
-                  fontSize: 18,
+              ListTile(
+                leading: Image.asset(
+                  'assets/cough.png',
+                  height: 38,
                 ),
-              ),
-              onTap: () {
-                // Navigator.pushNamed(context, '/Page3');
-                Navigator.push(context, ScaleRoute(page: Page3()));
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                'assets/cough.png',
-                height: 38,
-              ),
-              title: Text(
-                'Symptoms',
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontFamily: 'ProximaNova',
-                  letterSpacing: -0.5,
-                  fontSize: 18,
+                title: Text(
+                  'Symptoms',
+                  style: TextStyle(
+                    // color: Colors.white,
+                    fontFamily: 'ProximaNova',
+                    letterSpacing: -0.5,
+                    fontSize: 18,
+                  ),
                 ),
+                onTap: () {
+                  // Navigator.pushNamed(context, '/Page3');
+                  Navigator.push(context, ScaleRoute(page: Page4()));
+                },
               ),
-              onTap: () {
-                // Navigator.pushNamed(context, '/Page3');
-                Navigator.push(context, ScaleRoute(page: Page4()));
-              },
-            ),
-            ListTile(
-              leading: Image.asset(
-                'assets/mask.png',
-                height: 38,
-              ),
-              title: Text(
-                'Prevention',
-                style: TextStyle(
-                  // color: Colors.white,
-                  fontFamily: 'ProximaNova',
-                  letterSpacing: -0.5,
-                  fontSize: 18,
+              ListTile(
+                leading: Image.asset(
+                  'assets/mask.png',
+                  height: 38,
                 ),
+                title: Text(
+                  'Prevention',
+                  style: TextStyle(
+                    // color: Colors.white,
+                    fontFamily: 'ProximaNova',
+                    letterSpacing: -0.5,
+                    fontSize: 18,
+                  ),
+                ),
+                onTap: () {
+                  // Navigator.pushNamed(context, '/Page3');
+                  Navigator.push(context, ScaleRoute(page: Page5()));
+                },
               ),
-              onTap: () {
-                // Navigator.pushNamed(context, '/Page3');
-                Navigator.push(context, ScaleRoute(page: Page5()));
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       body: ListView(
