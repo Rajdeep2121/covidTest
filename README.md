@@ -25,39 +25,39 @@ flutter install
 ### SplashScreen
 
 <p align="center">
-<img src='Screenshots/7.jpg' height="500">
+<!-- <img src='Screenshots/7.jpg' height="500"> -->
 </p>
 
 <p align="center">
-<img src='Screenshots/1.jpg' height="500">
+<!-- <img src='Screenshots/1.jpg' height="500"> -->
 </p>
 
 ### Live Statistics of States in India
 
 <p align="center">
-<img src='Screenshots/2.jpg' height="500">
+<!-- <img src='Screenshots/2.jpg' height="500"> -->
 </p>
 
 ### Daily Statistics
 
 <p align="center">
-<img src='Screenshots/3.jpg' height="500">
+<!-- <img src='Screenshots/3.jpg' height="500"> -->
 </p>
 
 ### Symptoms of COVID-19
 
 <p align="center">
-<img src='Screenshots/4.jpg' height="500">
+<!-- <img src='Screenshots/4.jpg' height="500"> -->
 </p>
 
 ### Prevention of COVID-19
 
 <p align="center">
-<img src='Screenshots/5.jpg' height="500">
+<!-- <img src='Screenshots/5.jpg' height="500"> -->
 </p>
 
 ### App Drawer for Navigation through Pages
 
 <p align="center">
-<img src='Screenshots/6.jpg' height="500">
+<!-- <img src='Screenshots/6.jpg' height="500"> -->
 </p>
