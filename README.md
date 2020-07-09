@@ -62,3 +62,8 @@ flutter install
 <p align="center">
 <img src='Snaps/6.jpg' height="500">
 </p>
+
+
+# Video Demo of the App
+
+<a href='https://github.com/Rajdeep2121/covidTest/blob/master/Snaps/Record.mp4?raw=true'>Click here</a> to see the recorded demo. 
