@@ -299,10 +299,10 @@ class _Page3State extends State<Page3> {
                                   SizedBox(height: 10),
                                   Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceAround,
                                     children: <Widget>[
                                       Text(
-                                        "Cases: ${snapshot.data[index].listTotal}",
+                                        "Cases: ${formatNumber(snapshot.data[index].listTotal)}",
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
@@ -310,7 +310,7 @@ class _Page3State extends State<Page3> {
                                         ),
                                       ),
                                       Text(
-                                        "Recovered: ${snapshot.data[index].listRecd}",
+                                        "Recovered: ${formatNumber(snapshot.data[index].listRecd)}",
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
@@ -318,7 +318,7 @@ class _Page3State extends State<Page3> {
                                         ),
                                       ),
                                       Text(
-                                        "Deaths: ${snapshot.data[index].listDeaths}",
+                                        "Deaths: ${formatNumber(snapshot.data[index].listDeaths)}",
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontFamily: 'ProximaNova',
@@ -344,6 +344,37 @@ class _Page3State extends State<Page3> {
         ],
       ),
     );
+  }
+
+  formatNumber(String n) {
+    String newnew = '';
+    int count = 0;
+    if (n.length == 3) {
+      return n;
+    } else {
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew += n[i];
+      }
+      newnew += ',';
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew += n[j];
+        count += 1;
+        if (count == 2) {
+          count = 0;
+          newnew += ',';
+        }
+      }
+      String finalString = newnew.split('').reversed.join('');
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      if (finalString[0] == '+') {
+        if (finalString[1] == ',') {
+          finalString = '+' + finalString.substring(2);
+        }
+      }
+      return (finalString);
+    }
   }
 }
 

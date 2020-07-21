@@ -311,7 +311,7 @@ class _Page2State extends State<Page2> {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  "Confirmed: ${snapshot.data[index].confirmed} (+${snapshot.data[index].delConfd})",
+                                  "Confirmed: ${formatNumber(snapshot.data[index].confirmed)} (+${snapshot.data[index].delConfd})",
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
@@ -319,7 +319,7 @@ class _Page2State extends State<Page2> {
                                   ),
                                 ),
                                 Text(
-                                  "Active: ${snapshot.data[index].active}",
+                                  "Active: ${formatNumber(snapshot.data[index].active)}",
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
@@ -327,7 +327,7 @@ class _Page2State extends State<Page2> {
                                   ),
                                 ),
                                 Text(
-                                  "Recovered: ${snapshot.data[index].recovered} (+${snapshot.data[index].delRecd})",
+                                  "Recovered: ${formatNumber(snapshot.data[index].recovered)} (+${snapshot.data[index].delRecd})",
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
@@ -336,7 +336,7 @@ class _Page2State extends State<Page2> {
                                   ),
                                 ),
                                 Text(
-                                  "Deaths: ${snapshot.data[index].deaths} (+${snapshot.data[index].delDeath})",
+                                  "Deaths: ${formatNumber(snapshot.data[index].deaths)} (+${snapshot.data[index].delDeath})",
                                   style: TextStyle(
                                     fontFamily: 'ProximaNova',
                                     fontSize: 16,
@@ -368,6 +368,37 @@ class _Page2State extends State<Page2> {
         ],
       ),
     );
+  }
+
+  formatNumber(String n) {
+    String newnew = '';
+    int count = 0;
+    if (n.length == 3) {
+      return n;
+    } else {
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew += n[i];
+      }
+      newnew += ',';
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew += n[j];
+        count += 1;
+        if (count == 2) {
+          count = 0;
+          newnew += ',';
+        }
+      }
+      String finalString = newnew.split('').reversed.join('');
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      if (finalString[0] == '+') {
+        if (finalString[1] == ',') {
+          finalString = '+' + finalString.substring(2);
+        }
+      }
+      return (finalString);
+    }
   }
 }
 

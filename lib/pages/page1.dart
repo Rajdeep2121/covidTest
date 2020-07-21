@@ -318,7 +318,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              '$total',
+                              '${formatNumber(total)}',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -326,7 +326,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '($delTotal)',
+                              '(${formatNumber(delTotal)})',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -374,7 +374,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                           ),
                         ),
                         Text(
-                          '$active',
+                          '${formatNumber(active)}',
                           style: TextStyle(
                             fontFamily: 'ProximaNova',
                             color: Colors.white,
@@ -423,7 +423,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              '$recovered',
+                              '${formatNumber(recovered)}',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -431,7 +431,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '($delRecd)',
+                              '(${formatNumber(delRecd)})',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -482,7 +482,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              '$death',
+                              '${formatNumber(death)}',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -490,7 +490,7 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
                               ),
                             ),
                             Text(
-                              '($delDeath)',
+                              '(${formatNumber(delDeath)})',
                               style: TextStyle(
                                 fontFamily: 'ProximaNova',
                                 color: Colors.white,
@@ -509,5 +509,36 @@ class _Page1State extends State<Page1> with WidgetsBindingObserver {
         ],
       ),
     );
+  }
+
+  formatNumber(String n) {
+    String newnew = '';
+    int count = 0;
+    if (n.length == 3) {
+      return n;
+    } else {
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew += n[i];
+      }
+      newnew += ',';
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew += n[j];
+        count += 1;
+        if (count == 2) {
+          count = 0;
+          newnew += ',';
+        }
+      }
+      String finalString = newnew.split('').reversed.join('');
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      if (finalString[0] == '+') {
+        if (finalString[1] == ',') {
+          finalString = '+' + finalString.substring(2);
+        }
+      }
+      return (finalString);
+    }
   }
 }
